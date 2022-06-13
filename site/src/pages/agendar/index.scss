@@ -1,0 +1,82 @@
+.page-agendar{
+    background-color: #F5F5F5;
+    height: 1380px;
+
+    .faixa-1 {
+        background-color: #fff;
+    }
+    
+    .texto-1 {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        font-family: 'font3';
+    }
+    
+    .logo {
+        margin: 15px 50px;
+    }
+    
+    .texto-1 p {
+        margin: 40px 70px;
+    }
+    
+    .faixa-2 {
+        display: flex;
+        flex-direction: column;
+        font-family: 'font4';
+        margin: 60px 150px;
+        height: 800px;
+    }
+    
+    .faixa-2 h1 {
+        margin-bottom: 40px;
+    }
+    
+    .caixa {
+        margin-top: 20px;
+    }
+    
+    input {
+        display: flex;
+        flex-direction: row;
+        margin-right: 5px;
+        margin-top: 2px;
+    }
+    
+    .txt {
+        width: 300px;
+        height: 25px;
+        border-radius: 5px;
+    }
+    
+    .caixa-txt {
+        font-family: 'font6';
+        margin-top: 30px;
+    }
+    
+    .radio {
+        display: flex;
+        flex-direction: row;
+        margin-top: 10px;
+        font-family: 'font1';
+    }
+    
+    .f2-botao {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 40px;
+    }
+    
+    .botao {
+        font-family: 'font3';
+        text-align: center;
+        height: 32px;
+        width: 150px;
+        border-radius: 8px;
+        background-color: #CCFFE5;
+        border: 1px solid #2F9C7C;
+        cursor: pointer;
+    }
+}

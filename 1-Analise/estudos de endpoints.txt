@@ -1,0 +1,87 @@
+  
+  
+  /POST     /usuario/login
+    {
+    "email": "?"
+    "senha": "?"
+   }
+
+response
+{
+    "id":0,
+    "email": "",
+    "senha": ""
+}
+
+
+CS02(Agendar consulta)  /POST      /agendamento
+
+request
+{
+    "nome":"",
+    "idade":"",
+    "nasc ":"",
+    "cpf ":"",
+    "rg":"",
+    "doutor:"",
+    "servico":"",
+    "agendamento":"",
+    "vl do agendamento":"",
+    " forma pag":"",
+    "data pag":""
+}
+
+
+response
+{
+    "id":1,
+    "nome":"",
+    "idade":"",
+    "nasc ":"",
+    "cpf ":"",
+    "rg":"",
+    "doutor":"",
+    "servico":"",
+    "agendamento":"",
+    "vl do agendamento":"",
+    " forma pag":"",
+    "data pag":""
+}
+
+//////////////////////////////////////////////////////////////////////////////
+
+CSU03(excluir consulta) /delete    /agendamento/:id             
+
+204 no content
+-no response
+
+//////////////////////////////////////////////////////////////////////////////
+
+CS04( pesquisar data da consulta)    /get   /agendamento/buscar/data=         
+
+response{
+    [
+  {
+    "id": "?",
+    "nome": "?",
+    "CPF": "?",
+    "servico":"?",
+    "agendamento:"?"
+  }
+]
+}
+
+//////////////////////////////////////////////////////////////////////////////
+
+CS05(alterar dados da consulta) /put     /agendamento/:id
+
+{   
+  "nome": "?",
+   "servico":"?",
+   "agendamento":"?",
+   "novo agendamento":"?"
+}
+
+204 no content
+-no response
+
