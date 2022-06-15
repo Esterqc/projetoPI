@@ -1,11 +1,55 @@
+import { useState, useRef} from 'react'
+import { useNavigate} from 'react-router-dom'
+import LoadingBar from 'react-top-loading-bar'
+import { login } from '../../api/usuarioApi.js'
+
+import storage from 'local-storage'
+
 import "./index.scss";
 
-export default function Login() {
+export default function Index() {
+  const [ nome,setNome] = useState('');
+  const [ email,setEmail] = useState('');
+  const [ Senha,setSenha] = useState('');
+  const [erro, setErro] = useState('');
+  const [carregando, setCarregando] = useState(false);
+
+  const navigate = useNavigate();
+  const ref = useRef();
+
+  
+
+   
+  async function entrarClick() {
+    ref.current.continuousStart();
+    setCarregando(true);
+    try {
+        const r = await login(email, Senha)
+        storage('usuario-logado', r )
+        setTimeout(() => {
+            navigate('/admin');
+        }, 3000);
+            
+
+    } catch (err) {
+        ref.current.complete();
+        setCarregando(false);
+        if (err.response.status === 401){
+            setErro(err.response.data.erro);
+        }
+    }
+}
+
   return (
-    <main className="page-login">
-      <section>
+    <main className='page-login'>
+       <LoadingBar color='#2BC8A2' ref={ref} />
+
+      <section className='faixa-login'>
+
         <div className="logo">
-          <img className="imagem" src="/images/odontotooths 1.svg" alt="" />
+          <img src="/images/odontotooths 1.svg" alt="logo" />
+
+
           <a className="voltar" href="../home">Voltar</a>
         </div>
         <div className="destacar-login">
@@ -18,28 +62,36 @@ export default function Login() {
               <input className="f-1" type="text" />
             </div>
 
-            <div className="txt-icones">
-              <img src="/images/o-email 1.svg" alt="email" width='30'/>
-              <p>E-mail*</p>
-            </div>
             <div>
-              <input className="f-1" type="text" />
+                <h2 class="subtitulo"> E-mail*</h2> 
+                <input class="tag-input" type="text" name="email"  value={email} onChange={e => setEmail(e.target.value)} />
+                <img src="/images/o-email 1.svg" alt="email" width='30'/>
             </div>
 
-            <div className="txt-icones">
-              <img src="/images/cadeado 1.svg" alt="cadeado" width='30'/>
-              <p>Senha*</p>
-            </div>
             <div>
-              <input className="f-1" type="password" width='30'/>
+                <h2 class="subtitulo">Senha*</h2>
+               
+                <input class="tag-input" type="password" name="senha"  value={Senha} onChange={ e => setSenha(e.target.value)}/>
+                <img src="/images/cadeado 1.svg" alt="cadeado" width='30'/>
             </div>
+              
+           
+
 
             <a href="../administrativo">
-              <button className="botao">Entrar</button>
+              <button className="botao"  onClick={entrarClick}> Entrar</button>
             </a>
+            <div className='erro'>
+                {erro}
+            </div>
           </div>
+
         </div>
       </section>
     </main>
   );
 }
+
+
+
+

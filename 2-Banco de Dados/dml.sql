@@ -44,7 +44,7 @@ UPDATE TB_agendamento
    SET NM_paciente   	 = 'Maria de Lourdes Rodrigues',
      DS_servico     	='Especialista em Periodontia',
 	DT_agendamento   	= '2022-05-15',
-     DT_agendamento      = '2022-05-06'
+     DT_agendamentoNovo      = '2022-05-06'
  WHERE ID_agendamento	 = 4;
  
   

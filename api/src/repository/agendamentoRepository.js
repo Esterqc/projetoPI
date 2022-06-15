@@ -24,10 +24,10 @@ export async function InserirAgendamento(agendar) {
 
 export async function pesquisardatadaconsulta() {
   const comando = 
-    `SELECT  ID_agendamento	'id',
-      NM_paciente  	        'nome',
-      DS_CPF                'cpf',
-      DS_servico     	      'servico'
+    `SELECT  ID_agendamento	id,
+      NM_paciente  	        nome,
+      DS_CPF                cpf,
+      DS_servico     	      'servico
       FROM TB_agendamento
     WHERE DT_agendamento	=  like ?`;
 
@@ -51,14 +51,14 @@ export async function alterardadosdaconsulta(id, agendamento) {
     SET NM_paciente   	   = ?,
     DS_servico     	       = ?,
 	  DT_agendamento   	     = ?,
-    DT_agendamento         = ?
+    DT_agendamentoNovo         = ?
     WHERE ID_agendamento	 = ?;
     `;
   const [resposta] = await con.query(comando, [
     agendamento.nome,
     agendamento.servico,
     agendamento.agendamento,
-    agendamento.agendamento,
+    agendamento.agendamentoNovo,
     id,
   ]);
   return resposta.affectedRows;

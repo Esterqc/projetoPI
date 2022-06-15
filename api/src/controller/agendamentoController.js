@@ -55,13 +55,13 @@ server.get("/agendamento/buscar", async (req, resp) => {
   }
 });
 
-server.get("/agendamento/buscar/data", async (req, resp) => {
+server.get("/agendamento/buscar/:data", async (req, resp) => {
   try {
-    const { dt } = req.query;
+   const data = (req.params.data);
+    const resposta = await pesquisardatadaconsulta(data);
 
-    const resposta = await pesquisardatadaconsulta(dt);
     if (!resposta) {
-      resp.status(404).send([]);
+      resp.status(404).send([])
     } else {
       resp.send(resposta);
     }
@@ -72,7 +72,7 @@ server.get("/agendamento/buscar/data", async (req, resp) => {
   }
 });
 
-server.delete("/agendamento/:id", async (req, resp) => {
+server.delete("/agendamentoExcluir/:id", async (req, resp) => {
   try {
     const { id } = req.params;
     const resposta = await excluirconsulta(id);
@@ -88,7 +88,7 @@ server.delete("/agendamento/:id", async (req, resp) => {
   }
 });
 
-server.put("/agendamento", async (req, resp) => {
+server.put("/alterardados/:id", async (req, resp) => {
   try {
     const agendamento = req.body;
     const { id } = req.params;
@@ -115,9 +115,15 @@ server.put("/agendamento", async (req, resp) => {
     if (!novoAgendamento.agendamento)
       throw new Error("  agendamento é obrigatorio!");
 
+     
+
     const resposta = await alterardadosdaconsulta(id, agendamento);
-    if (resposta != 1) throw new Error("Agendamento não pode ser alterado");
-    else resp.sendStatus(204);
+    if (resposta != 1)
+     throw new Error("Agendamento não pode ser alterado");
+
+    else 
+    resp.sendStatus(204);
+
   } catch (err) {
     resp.send({
       erro: err.message,
