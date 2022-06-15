@@ -45,11 +45,8 @@ export default function Index() {
        <LoadingBar color='#2BC8A2' ref={ref} />
 
       <section className='faixa-login'>
-
         <div className="logo">
           <img src="/images/odontotooths 1.svg" alt="logo" />
-
-
           <a className="voltar" href="../home">Voltar</a>
         </div>
         <div className="destacar-login">
@@ -74,10 +71,7 @@ export default function Index() {
                 <input class="tag-input" type="password" name="senha"  value={Senha} onChange={ e => setSenha(e.target.value)}/>
                 <img src="/images/cadeado 1.svg" alt="cadeado" width='30'/>
             </div>
-              
-           
-
-
+      
             <a href="../administrativo">
               <button className="botao"  onClick={entrarClick}> Entrar</button>
             </a>

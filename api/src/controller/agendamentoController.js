@@ -1,38 +1,44 @@
 import {
   InserirAgendamento,
-  pesquisardatadaconsulta,
+  consultarData,
   excluirconsulta,
   alterardadosdaconsulta,
+  listarTodasConsultas,
 } from "../repository/agendamentoRepository.js";
 
 import { Router } from "express";
 const server = Router();
+
+
 
 server.post("/agendar", async (req, resp) => {
   try {
     const novoAgendamento = req.body;
 
     if (!novoAgendamento.nome)
-      throw new Error("Nome Do Paciente é obrigatorio!");
+      throw new Error("Nome do paciente é obrigatorio!");
 
     if (!novoAgendamento.idade)
-      throw new Error("idade Do Paciente é obrigatorio!");
+      throw new Error("Idade do paciente é obrigatorio!");
 
     if (!novoAgendamento.nasc)
-      throw new Error("Data de nasc Do Paciente é obrigatorio!");
+      throw new Error("Data de nascimento do paciente é obrigatorio!");
 
     if (!novoAgendamento.cpf)
-      throw new Error("cpf Do Paciente é obrigatorio!");
+      throw new Error("CPF do paciente é obrigatorio!");
 
-    if (!novoAgendamento.rg) throw new Error("rg Do Paciente é obrigatorio!");
+    if (!novoAgendamento.rg) throw new Error("RG do paciente é obrigatorio!");
 
     if (!novoAgendamento.doutor)
-      throw new Error(" nome do doutor é obrigatorio!");
+      throw new Error("Nome do doutor não válido!");
 
-    if (!novoAgendamento.servico) throw new Error(" servico é obrigatorio!");
+    if (!novoAgendamento.servico) throw new Error("Servico é obrigatorio!");
 
     if (!novoAgendamento.agendamento)
-      throw new Error("  agendamento é obrigatorio!");
+      throw new Error("Data do agendamento é obrigatorio!");
+
+    if (!novoAgendamento.valordoagendamento)
+    throw new Error("Data do agendamento é obrigatorio!");
 
     const Agendarconsulta = await InserirAgendamento(novoAgendamento);
     resp.send(Agendarconsulta);
@@ -43,32 +49,31 @@ server.post("/agendar", async (req, resp) => {
   }
 });
 
-server.get("/agendamento/buscar", async (req, resp) => {
+server.get('/consultas', async (req, resp) => {
   try {
-    const buscar = req.query;
-    const resposta = await pesquisardatadaconsulta();
+    const resposta = await listarTodasConsultas();
     resp.send(resposta);
-  } catch (err) {
-    resp.send(400).send({
-      erro: err.message,
-    });
+  }catch (err) {
+    resp.status(400).send({
+      erro: err.message
+    })
   }
-});
+})
 
-server.get("/agendamento/buscar/:data", async (req, resp) => {
+server.get('/consultas/busca', async (req, resp) => {
   try {
-   const data = (req.params.data);
-    const resposta = await pesquisardatadaconsulta(data);
+      const { data } = req.query;
 
-    if (!resposta) {
-      resp.status(404).send([])
-    } else {
-      resp.send(resposta);
-    }
+      const resposta = await consultarData(data);
+
+      if (!resposta)
+        resp.status(404).send([])
+      else
+        resp.send(resposta);
   } catch (err) {
-    resp.send({
-      erro: err.message,
-    });
+    resp.status(400).send({
+      erro: err.message
+    })
   }
 });
 
@@ -115,14 +120,12 @@ server.put("/alterardados/:id", async (req, resp) => {
     if (!novoAgendamento.agendamento)
       throw new Error("  agendamento é obrigatorio!");
 
-     
-
     const resposta = await alterardadosdaconsulta(id, agendamento);
     if (resposta != 1)
-     throw new Error("Agendamento não pode ser alterado");
+      throw new Error("Agendamento não pode ser alterado");
 
-    else 
-    resp.sendStatus(204);
+    else
+      resp.sendStatus(204);
 
   } catch (err) {
     resp.send({

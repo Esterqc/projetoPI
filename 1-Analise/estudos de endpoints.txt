@@ -1,16 +1,16 @@
   
-  
-  /POST     /usuario/login
-    {
-    "email": "?"
-    "senha": "?"
-   }
+
+/POST     /usuario/login
+{
+  "email": "?"
+  "senha": "?"
+}
 
 response
 {
-    "id":0,
-    "email": "",
-    "senha": ""
+  "id":0,
+  "email": "",
+  "senha": ""
 }
 
 
@@ -18,34 +18,53 @@ CS02(Agendar consulta)  /POST      /agendamento
 
 request
 {
-    "nome":"",
-    "idade":"",
-    "nasc ":"",
-    "cpf ":"",
-    "rg":"",
-    "doutor:"",
-    "servico":"",
-    "agendamento":"",
-    "vl do agendamento":"",
-    " forma pag":"",
-    "data pag":""
+  "nome":"",
+  "idade":"",
+  "nasc":"",
+  "cpf":"",
+  "rg":"",
+  "doutor":"",
+  "servico":"",
+  "agendamento":"",
+  "vl_do_agendamento":"",
+  " forma_pag":"",
+  "data_pag":""
 }
 
 
 response
 {
-    "id":1,
-    "nome":"",
-    "idade":"",
-    "nasc ":"",
-    "cpf ":"",
-    "rg":"",
-    "doutor":"",
-    "servico":"",
-    "agendamento":"",
-    "vl do agendamento":"",
-    " forma pag":"",
-    "data pag":""
+  "id":1,
+  "nome":"",
+  "idade":"",
+  "nasc":"",
+  "cpf":"",
+  "rg":"",
+  "doutor":"",
+  "servico":"",
+  "agendamento":"",
+  "vl_do_agendamento":"",
+  "forma_pag":"",
+  "data_pag":""
+}
+
+//////////////////////////////////////////////////////////////////////////////
+
+/GET     /consultas
+
+response
+{
+  "nome":"",
+  "idade":"",
+  "nasc":"",
+  "cpf":"",
+  "rg":"",
+  "doutor":"",
+  "servico":"",
+  "agendamento":"",
+  "vl_do_agendamento":"",
+  "forma_pag":"",
+  "data_pag":""
 }
 
 //////////////////////////////////////////////////////////////////////////////
@@ -57,19 +76,18 @@ CSU03(excluir consulta) /delete    /agendamento/:id
 
 //////////////////////////////////////////////////////////////////////////////
 
-CS04( pesquisar data da consulta)    /get   /agendamento/buscar/data=         
+CS04(pesquisar data da consulta)    /get   /consultar/data         
 
-response{
-    [
+response
+[
   {
     "id": "?",
     "nome": "?",
     "CPF": "?",
     "servico":"?",
-    "agendamento:"?"
+    "agendamento":"?"
   }
 ]
-}
 
 //////////////////////////////////////////////////////////////////////////////
 
@@ -77,9 +95,9 @@ CS05(alterar dados da consulta) /put     /agendamento/:id
 
 {   
   "nome": "?",
-   "servico":"?",
-   "agendamento":"?",
-   "novo agendamento":"?"
+  "servico":"?",
+  "agendamento":"?",
+  "novo_agendamento":"?"
 }
 
 204 no content
