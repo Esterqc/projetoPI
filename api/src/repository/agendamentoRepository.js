@@ -5,14 +5,14 @@ export async function InserirAgendamento(agendar) {
             values (?,?,?,?,?,?,?,?,?,?,?)`;
 
   const [resposta] = await con.query(comando, [
-    agendar.nome,
+    agendar.paciente,
     agendar.idade,
     agendar.nascimento,
     agendar.cpf,
     agendar.rg,
     agendar.doutor,
     agendar.servico,
-    agendar.datadoagendamento,
+    agendar.data,
     agendar.valordoagendamento,
     agendar.formapag,
     agendar.datapag,
@@ -78,7 +78,7 @@ export async function alterardadosdaconsulta(id, agendamento) {
     SET NM_paciente   	   = ?,
     DS_servico     	       = ?,
 	  DT_agendamento   	     = ?,
-    DT_agendamentoNovo         = ?
+    DT_agendamentoNovo     = ?
     WHERE ID_agendamento	 = ?;
     `;
   const [resposta] = await con.query(comando, [

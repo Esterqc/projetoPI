@@ -36,15 +36,15 @@ _request_
 {
   "nome":"",
   "idade":"",
-  "nasc":"",
+  "nascimento":"",
   "cpf":"",
   "rg":"",
   "doutor":"",
   "servico":"",
-  "agendamento":"",
-  "vl_do_agendamento":"",
-  "forma_pag":"",
-  "data_pag":""
+  "data":"",
+  "preco":"",
+  "formaPagamento":"",
+  "dataPagamento":""
 }
 ```
 _response_
@@ -53,15 +53,15 @@ _response_
   "id":1,
   "nome":"",
   "idade":"",
-  "nasc":"",
+  "nascimento":"",
   "cpf":"",
   "rg":"",
   "doutor":"",
   "servico":"",
-  "agendamento":"",
-  "vl_do_agendamento":"",
-  "forma_pag":"",
-  "data_pag":""
+  "data":"",
+  "preco":"",
+  "formaPagamento":"",
+  "dataPagamento":""
 }
 ```
 
@@ -79,15 +79,15 @@ _response_
   {
     "nome":"",
     "idade":"",
-    "nasc":"",
+    "nascimento":"",
     "cpf":"",
     "rg":"",
     "doutor":"",
     "servico":"",
-    "agendamento":"",
-    "vl_do_agendamento":"",
-    "forma_pag":"",
-    "data_pag":""
+    "data":"",
+    "preco":"",
+    "formaPagamento":"",
+    "dataPagamento":""
   }
 ]
 ```
@@ -120,12 +120,13 @@ _response_
     "nome": "?",
     "CPF": "?",
     "servico":"?",
-    "agendamento":"?"
+    "data":"?"
   }
 ]
 ```
 \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 <hr/>
+
 ### (6° CASO DE USO) => ALTERAR DADOS DA CONSULTA
 
 /PUT     /agendamento/:id
@@ -135,7 +136,7 @@ _request_
 {   
   "nome": "?",
   "servico":"?",
-  "novo_agendamento":"?",
+  "novo_agendamento":"?"
 }
 ```
 _response_

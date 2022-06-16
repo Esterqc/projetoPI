@@ -15,13 +15,13 @@ server.post("/agendar", async (req, resp) => {
   try {
     const novoAgendamento = req.body;
 
-    if (!novoAgendamento.nome)
+    if (!novoAgendamento.paciente)
       throw new Error("Nome do paciente é obrigatorio!");
 
     if (!novoAgendamento.idade)
       throw new Error("Idade do paciente é obrigatorio!");
 
-    if (!novoAgendamento.nasc)
+    if (!novoAgendamento.nascimento)
       throw new Error("Data de nascimento do paciente é obrigatorio!");
 
     if (!novoAgendamento.cpf)
@@ -32,13 +32,20 @@ server.post("/agendar", async (req, resp) => {
     if (!novoAgendamento.doutor)
       throw new Error("Nome do doutor não válido!");
 
-    if (!novoAgendamento.servico) throw new Error("Servico é obrigatorio!");
+    if (!novoAgendamento.servico)
+     throw new Error("Servico é obrigatorio!");
 
-    if (!novoAgendamento.agendamento)
-      throw new Error("Data do agendamento é obrigatorio!");
-
-    if (!novoAgendamento.valordoagendamento)
+    if (!novoAgendamento.data)
     throw new Error("Data do agendamento é obrigatorio!");
+
+    if (!novoAgendamento.preco)
+    throw new Error("Preço inválido!");
+
+    if (!novoAgendamento.formaPagamento)
+    throw new Error("Forma de pagamento inválida!");
+
+    if (!novoAgendamento.dataPagamento)
+    throw new Error("Data do pagamento iválida!");
 
     const Agendarconsulta = await InserirAgendamento(novoAgendamento);
     resp.send(Agendarconsulta);

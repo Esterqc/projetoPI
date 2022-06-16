@@ -2,7 +2,7 @@ CREATE DATABASE dentista_DB;
 
 USE Dentista;
 
-CREATE TABLE tb_funcionário(
+CREATE TABLE tb_funcionario(
 	id_funcionario       INT PRIMARY KEY auto_increment,
 			nm_usuario            varchar(20),
 			ds_email              varchar(100),
