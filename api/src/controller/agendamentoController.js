@@ -1,5 +1,5 @@
 import {
-  InserirAgendamento,
+  inserirAgendamento,
   consultarData,
   excluirconsulta,
   alterardadosdaconsulta,
@@ -10,18 +10,17 @@ import { Router } from "express";
 const server = Router();
 
 
-
-server.post("/agendar", async (req, resp) => {
+server.post("/agendamento", async (req, resp) => {
   try {
     const novoAgendamento = req.body;
 
-    if (!novoAgendamento.paciente)
+    if (!novoAgendamento.nome)
       throw new Error("Nome do paciente é obrigatorio!");
 
     if (!novoAgendamento.idade)
       throw new Error("Idade do paciente é obrigatorio!");
 
-    if (!novoAgendamento.nascimento)
+    if (!novoAgendamento.nasc)
       throw new Error("Data de nascimento do paciente é obrigatorio!");
 
     if (!novoAgendamento.cpf)
@@ -32,22 +31,15 @@ server.post("/agendar", async (req, resp) => {
     if (!novoAgendamento.doutor)
       throw new Error("Nome do doutor não válido!");
 
-    if (!novoAgendamento.servico)
-     throw new Error("Servico é obrigatorio!");
+    if (!novoAgendamento.servico) throw new Error("Servico é obrigatorio!");
 
-    if (!novoAgendamento.data)
+    if (!novoAgendamento.dataAgendamento)
+      throw new Error("Data do agendamento é obrigatorio!");
+
+    if (!novoAgendamento.valorAgendamento)
     throw new Error("Data do agendamento é obrigatorio!");
 
-    if (!novoAgendamento.preco)
-    throw new Error("Preço inválido!");
-
-    if (!novoAgendamento.formaPagamento)
-    throw new Error("Forma de pagamento inválida!");
-
-    if (!novoAgendamento.dataPagamento)
-    throw new Error("Data do pagamento iválida!");
-
-    const Agendarconsulta = await InserirAgendamento(novoAgendamento);
+    const Agendarconsulta = await inserirAgendamento(novoAgendamento);
     resp.send(Agendarconsulta);
   } catch (err) {
     resp.status(400).send({
@@ -84,7 +76,7 @@ server.get('/consultas/busca', async (req, resp) => {
   }
 });
 
-server.delete("/agendamentoExcluir/:id", async (req, resp) => {
+server.delete("/agendamento/:id", async (req, resp) => {
   try {
     const { id } = req.params;
     const resposta = await excluirconsulta(id);
