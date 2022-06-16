@@ -59,16 +59,16 @@ server.get('/consultas', async (req, resp) => {
   }
 })
 
-server.get('/consultas/busca', async (req, resp) => {
+// CONSULTAR POR DATA
+
+server.get('/consultar/busca', async (req, resp) => {
   try {
-      const { data } = req.query;
-
+    
+      const data  = req.query.data;
       const resposta = await consultarData(data);
-
-      if (!resposta)
-        resp.status(404).send([])
-      else
-        resp.send(resposta);
+      console.log(data)
+      console.log(resposta)
+      resp.send(resposta);
   } catch (err) {
     resp.status(400).send({
       erro: err.message

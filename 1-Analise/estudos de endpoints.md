@@ -120,7 +120,9 @@ _response_
     "nome": "?",
     "CPF": "?",
     "servico":"?",
-    "data":"?"
+    "data":"?",
+    "preco": ?,
+    "dataPagemento": ?
   }
 ]
 ```

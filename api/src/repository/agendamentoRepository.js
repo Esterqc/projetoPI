@@ -43,20 +43,16 @@ export async function listarTodasConsultas() {
 
 export async function consultarData(data) {
   const comando = 
-    `SELECT  ID_agendamento    id,
-              NM_paciente       paciente,
-              NR_idade          idade,
-              DT_nasc           nascimento,
-              DS_CPF            cpf,
-              DS_RG             rg,
-              NM_doutor         doutor,
-              DS_servico        servico,
-              DT_agendamento    data,
-              VL_agendamento    preco,
-              DS_forma_pag      formaPagamento,
-              DS_data_pag       dataPagamento
-      FROM TB_agendamento
-    WHERE DT_agendamento	like ?`;
+    `SELECT   id_agendamento    id,
+              nm_paciente       paciente,
+              ds_CPF            cpf,
+              nm_doutor         doutor,
+              ds_servico        servico,
+              dt_agendamento    data,
+              vl_agendamento    preco,
+              ds_data_pagameto  dataPagamento
+      FROM tb_agendamento
+    WHERE dt_agendamento	like ?`;
 
   const [linhas] = await con.query(comando, [ `%${data}%` ]);
   return linhas;
