@@ -1,25 +1,25 @@
-CREATE DATABASE Dentista;
+CREATE DATABASE dentista_DB;
 
 USE Dentista;
 
-CREATE TABLE TB_Funcionário(
-	ID_funcionario       INT PRIMARY KEY AUTO_INCREMENT,
-			Nm_usuario            Varchar(20),
-			DS_email              Varchar(100),
-			Ds_senha              Varchar(8)
+CREATE TABLE tb_funcionário(
+	id_funcionario       INT PRIMARY KEY auto_increment,
+			nm_usuario            varchar(20),
+			ds_email              varchar(100),
+			ds_senha              varchar(8)
 );
 
-CREATE TABLE TB_Agendamento(
-	ID_agendamento      INT PRIMARY KEY AUTO_INCREMENT,
-			NM_paciente                    varchar(200),  
-            NR_idade                          int,
-            DT_nasc                          datetime,
-            DS_CPF                           varchar(14),
-            DS_RG                            varchar(13),
-            NM_doutor                        varchar (100),
-            DS_servico                        varchar(100),
-            DT_agendamento                     datetime,
-            VL_agendamento                      decimal(10,2),
-            DS_forma_pag                        varchar(100),
-            DS_data_pag                         varchar(100)
+CREATE TABLE tb_agendamento(
+	        id_agendamento                 INT PRIMARY KEY AUTO_INCREMENT,
+			nm_paciente                    varchar(200),  
+            nm_idade                       int,
+            dt_nascimento                  datetime,
+            ds_CPF                         varchar(14),
+            ds_RG                          varchar(13),
+            nm_doutor                      varchar (100),
+            ds_servico                     varchar(100),
+            dt_agendamento                 datetime,
+            vl_agendamento                 decimal(10,2),
+            ds_forma_pagamento             varchar(100),
+            ds_data_pagameto               varchar(100)
 );
