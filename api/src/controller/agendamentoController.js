@@ -66,9 +66,17 @@ server.get('/consultar/busca', async (req, resp) => {
     
       const data  = req.query.data;
       const resposta = await consultarData(data);
-      console.log(data)
       console.log(resposta)
-      resp.send(resposta);
+      if(!resposta || data <= 0){
+        throw new Error('Digite uma data Válida!')
+      }
+      else if(resposta.length == 0){
+        resp.send({
+          ops: "Não foi achada nenhuma consulta com essa data!"
+        });
+      }
+      else
+        resp.send(resposta);
   } catch (err) {
     resp.status(400).send({
       erro: err.message
