@@ -1,5 +1,6 @@
   
 # ESTUDO DOS ENDPOINTS
+<hr/>
 
 ### (1° CASO DE USO) => _LOGIN_
 
@@ -23,6 +24,7 @@ _response_
 }
 ```
 \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+<hr/>
 
 ### (2° CASO DE USO) => _AGENDAR CONSULTA_ 
 
@@ -64,6 +66,7 @@ _response_
 ```
 
 \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+<hr/>
 
 ### (3° CASO DE USO) => CONSULTAR TODAS CONSULTAS
 
@@ -89,6 +92,7 @@ _response_
 ]
 ```
 \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+<hr/>
 
 ### (4° CASO DE USO) => EXCLUIR CONSULTAS
 
@@ -104,6 +108,7 @@ _response_
 -no response
 ```
 \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+<hr/>
 
 ### (5° CASO DE USO) => PESQUISAR DATA DA CONSULTA
 /GET   /consultar/data         
@@ -120,7 +125,7 @@ _response_
 ]
 ```
 \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-
+<hr/>
 ### (6° CASO DE USO) => ALTERAR DADOS DA CONSULTA
 
 /PUT     /agendamento/:id
