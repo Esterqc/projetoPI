@@ -36,7 +36,8 @@ DELETE FROM tb_agendamento
 SELECT  id_agendamento		  'id',
 	      nm_paciente  	      'nome',
         ds_CPF              'cpf',
-        ds_servico     	    'servico'
+        ds_servico     	    'servico',
+        dt_agendamento				'agendamento'
   FROM tb_agendamento
   WHERE dt_agendamento    like '%a%';
   

@@ -1,24 +1,36 @@
   
+# ESTUDO DOS ENDPOINTS
 
+### (1° CASO DE USO) => _LOGIN_
 
+/POST   /usuario/login
 
-/POST     /usuario/login
+_request_
+
+```
 {
   "email": "?"
   "senha": "?"
 }
+```
 
-response
+_response_
+```
 {
   "id":0,
   "email": "",
   "senha": ""
 }
+```
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
+### (2° CASO DE USO) => _AGENDAR CONSULTA_ 
 
-CS02(Agendar consulta)  /POST      /agendamento
+/POST      /agendamento
 
-request
+_request_
+
+```
 {
   "nome":"",
   "idade":"",
@@ -29,12 +41,12 @@ request
   "servico":"",
   "agendamento":"",
   "vl_do_agendamento":"",
-  " forma_pag":"",
+  "forma_pag":"",
   "data_pag":""
 }
-
-
-response
+```
+_response_
+```
 {
   "id":1,
   "nome":"",
@@ -49,39 +61,55 @@ response
   "forma_pag":"",
   "data_pag":""
 }
+```
 
-//////////////////////////////////////////////////////////////////////////////
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+### (3° CASO DE USO) => CONSULTAR TODAS CONSULTAS
+
 
 /GET     /consultas
 
-response
-{
-  "nome":"",
-  "idade":"",
-  "nasc":"",
-  "cpf":"",
-  "rg":"",
-  "doutor":"",
-  "servico":"",
-  "agendamento":"",
-  "vl_do_agendamento":"",
-  "forma_pag":"",
-  "data_pag":""
-}
-
-//////////////////////////////////////////////////////////////////////////////
-
-CSU03(excluir consulta) /delete    /agendamento/:id             
-
-204 no content
--no response
-
-//////////////////////////////////////////////////////////////////////////////
-
-CS04(pesquisar data da consulta)    /get   /consultar/data         
-
-response
+_response_
+```
 [
+  {
+    "nome":"",
+    "idade":"",
+    "nasc":"",
+    "cpf":"",
+    "rg":"",
+    "doutor":"",
+    "servico":"",
+    "agendamento":"",
+    "vl_do_agendamento":"",
+    "forma_pag":"",
+    "data_pag":""
+  }
+]
+```
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+### (4° CASO DE USO) => EXCLUIR CONSULTAS
+
+/delete    /agendamento/:id             
+
+_request_
+```
+204 no content
+```
+
+_response_
+```
+-no response
+```
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+### (5° CASO DE USO) => PESQUISAR DATA DA CONSULTA
+/GET   /consultar/data         
+
+_response_
+```[
   {
     "id": "?",
     "nome": "?",
@@ -90,18 +118,23 @@ response
     "agendamento":"?"
   }
 ]
+```
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
-//////////////////////////////////////////////////////////////////////////////
+### (6° CASO DE USO) => ALTERAR DADOS DA CONSULTA
 
-CS05(alterar dados da consulta) /put     /agendamento/:id
+/PUT     /agendamento/:id
 
+_request_
+```
 {   
   "nome": "?",
   "servico":"?",
-  "agendamento":"?",
-  "novo_agendamento":"?"
+  "novo_agendamento":"?",
 }
-
+```
+_response_
+```
 204 no content
 -no response
-
+```
