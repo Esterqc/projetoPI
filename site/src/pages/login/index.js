@@ -1,44 +1,38 @@
-import { useState, useRef} from 'react'
-import { useNavigate} from 'react-router-dom'
+import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
+
 import LoadingBar from 'react-top-loading-bar'
-import { login } from '../../api/usuarioApi.js'
+import { useState, useRef } from 'react'
+import './index.scss'
 
-import storage from 'local-storage'
-
-import "./index.scss";
 
 export default function Index() {
-  const [ nome,setNome] = useState('');
-  const [ email,setEmail] = useState('');
-  const [ Senha,setSenha] = useState('');
+  const [email, setEmail] = useState('');
+  const [senha, setSenha] = useState('');
   const [erro, setErro] = useState('');
-  const [carregando, setCarregando] = useState(false);
 
   const navigate = useNavigate();
   const ref = useRef();
 
-  
 
-   
   async function entrarClick() {
-    ref.current.continuousStart();
-    setCarregando(true);
-    try {
-        const r = await login(email, Senha)
-        storage('usuario-logado', r )
-        setTimeout(() => {
-            navigate('/admin');
-        }, 3000);
-            
+      ref.current.continuousStart();
 
-    } catch (err) {
-        ref.current.complete();
-        setCarregando(false);
-        if (err.response.status === 401){
-            setErro(err.response.data.erro);
+      try {
+          const resposta = await axios .get('http://localhost:5000/usuario/login', { 
+              email: email, 
+              senha: senha 
+          }); 
+
+          navigate('/admin');
+          
+      } catch (err) {
+        if (err.response.status === 401) {
+          setErro(err.response.data.erro);
         }
-    }
-}
+      }
+
+  }
 
   return (
     <main className='page-login'>
@@ -52,12 +46,9 @@ export default function Index() {
         <div className="destacar-login">
           <div className="conteudo">
             <div className="txt-icones">
-              <img src="/images/perfil 1 (1).svg" alt="perfil" width='30'/>
-              <p>Nome*</p>
+              <p>Seja bem-vindo</p>
             </div>
-            <div>
-              <input className="f-1" type="text" />
-            </div>
+            
 
             <div>
                 <h2 class="subtitulo"> E-mail*</h2> 
@@ -68,12 +59,12 @@ export default function Index() {
             <div>
                 <h2 class="subtitulo">Senha*</h2>
                
-                <input class="tag-input" type="password" name="senha"  value={Senha} onChange={ e => setSenha(e.target.value)}/>
+                <input class="tag-input" type="password" name="senha"  value={senha} onChange={e => setSenha(e.target.value)}/>
                 <img src="/images/cadeado 1.svg" alt="cadeado" width='30'/>
             </div>
       
             <a href="../administrativo">
-              <button className="botao"  onClick={entrarClick}> Entrar</button>
+              <button className="botao" onClick={entrarClick}>Entrar</button>
             </a>
             <div className='erro'>
                 {erro}
