@@ -70,18 +70,16 @@ export async function excluirconsulta(id) {
 
 export async function alterardadosdaconsulta(id, agendamento) {
   const comando = `
-    UPDATE TB_agendamento 
-    SET NM_paciente   	   = ?,
-    DS_servico     	       = ?,
-	  DT_agendamento   	     = ?,
-    DT_agendamentoNovo     = ?
-    WHERE ID_agendamento	 = ?;
+  UPDATE tb_agendamento 
+      SET nm_paciente   	 = ?,
+      ds_servico     	   =   ?,
+      dt_agendamento   	 =   ?
+    WHERE id_agendamento	 = ?;
     `;
   const [resposta] = await con.query(comando, [
     agendamento.nome,
     agendamento.servico,
-    agendamento.agendamento,
-    agendamento.agendamentoNovo,
+    agendamento.dataAgendamento,
     id,
   ]);
   return resposta.affectedRows;
