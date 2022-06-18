@@ -1,45 +1,39 @@
+
 import './index.scss'
-import storage from 'local-storage'
+
 import {inserirAgendamento} from '../../api/agendamentoApi.js'
-
 import { useState } from 'react'
-import { ToastContainer, toast } from 'react-toast';
-
 
 
 export default function Index(){
-    const[nome,setNome] =useState('');
+    const [nome, setNome] = useState('');
     const [idade, setIdade] = useState('');
-    const [data_de_nascimento, setData_de_nascimento] = useState('');
+    const [nasc, setNasc] = useState('');
     const [cpf, setCpf] = useState('');
     const [rg, setRg] = useState('');
     const [doutor, setDoutor] = useState('');
-
-    const [serviços, setServiços] = useState('');
-    const [data_e_hora, setData_e_hora] = useState('');
-    const [ valor, setValor] = useState('');
-    const [forma_de_pagamento, setForma_de_pagamento] = useState('');
-    const [data_do_pagamento, setData_do_pagamento] = useState('');
-
-    
-
-    
+    const [servico, setServico] = useState('');
+    const [dataAgendamento, setDataAgendamento] = useState('');
+    const [valorAgendamento, setValorAgendamento] = useState('');
+    const [forma_pag, setForma_pag] = useState('');
+    const [data_pag, setData_pag] = useState('');
 
 
     async function SalvarClick() {
         try{
-            const usuario = storage('usuario-logado').id;
-            const r = await inserirAgendamento(nome,idade,data_de_nascimento,cpf,rg,doutor,serviços,data_e_hora,valor,forma_de_pagamento,data_do_pagamento,usuario);
-
-            toast('Agendamento cadastrado com sucesso!');
-        } catch (err){
-            toast.error(err.message)
+            const r = await inserirAgendamento(nome, idade, nasc, cpf, rg, doutor, servico, dataAgendamento, valorAgendamento, forma_pag, data_pag);
+            
+            alert('Agendamento cadastrado com sucesso!');
+        } 
+        catch(err){
+            
+            alert(err.message)
         }
     }
 
     return(
         <main className='page-agendar'>
-            <ToastContainer />
+            
             <nav className='faixa-1'>
                 <div className='texto-1'>
                 <a href='../administrativo'>
@@ -54,87 +48,84 @@ export default function Index(){
                     <h1>Agendar consulta</h1>
                     <div>
                         <p>Nome do paciente*</p>
-                        <input class="nome" type="text" value={nome} onChange={e => setNome(e.target.value)}   />
+                        <input className="nome" type="text" value={nome} onChange={e => setNome(e.target.value)}   />
                     </div>
                     <div className='caixa'>
                         <p>Qual a idade*</p>
-                        <input class="idade" type="idade" value={idade} onChange={e => setIdade(e.target.value)}  />
+                        <input className="idade" type="number" value={idade} onChange={e => setIdade(e.target.value)}  />
                     </div>
                     <div className='caixa'>
                         <p>Data de nascimento*</p>
-                        <input class="dt-conf" type="date" value={data_de_nascimento} onChange={e => setData_de_nascimento(e.target.value)}  />
+                        <input className="dt-conf" type="date" value={nasc} onChange={e => setNasc(e.target.value)}  />
 
                     </div>
                     <div className='caixa'>
                         <p>CPF*</p>
-                        <input class="genero-CPF" type="text" value={cpf} onChange={e => setCpf(e.target.value)}   />
+                        <input className="genero-CPF" type="text" value={cpf} onChange={e => setCpf(e.target.value)}   />
                     </div>
                     <div className='caixa'>
                         <p>RG*</p>
-                        <input className='txt' type='text'></input>
+                        <input className='txt' type='text' value={rg} onChange={e => setRg(e.target.value)}></input>
                     </div>
                     <div className='f2-doutor'>
                         <h3 className='caixa-txt'>Doutor</h3>
                         <div className='radio'>
-                            <input type='radio' name='Doutor' value='Dra.Mônica Araujo'/>Dra. Mônica Araujo
+                                <input type='radio' name='Doutor' checked={doutor} onChange={e => setDoutor(e.target.checked)}/>Dra. Mônica Araujo
                         </div>
                         <div className='radio'>
-                            <input type='radio' name='Doutor'/>Dra. Hana Lewis
+                                <input type='radio' name='Doutor' checked={doutor} onChange={e => setDoutor(e.target.checked)}/>Dra. Hana Lewis
                         </div>
                         <div className='radio'>
-                            <input type='radio' name='Doutor'/>Dr. Yuri Ikari
+                            <input type='radio' name='Doutor' checked={doutor} onChange={e => setDoutor(e.target.checked)} />Dr. Yuri Ikari
                         </div>
                         <div className='radio'>
-                            <input type='radio' name='Doutor'/>Dr. Fernando Winson
+                            <input type='radio' name='Doutor' checked={doutor} onChange={e => setDoutor(e.target.checked)}/>Dr. Fernando Winson
                         </div>
                     </div>
                     <div>
                         <div className='caixa-txt'>
                             <p>Serviços*</p>
-                            <input className='txt' type='text'></input>
+                            <input className='txt' type='text' value={servico} onChange={e => setServico(e.target.value)}></input>
                         </div>
                         <div className='caixa'>
-                            <p>Data e hora*</p>
-                            <input class="caixa" type="text" value={data_e_hora} onChange={e => setData_e_hora(e.target.value)} /> 
+                            <p>Data agendamento*</p>
+                            <input className="dt-conf" type="date" value={dataAgendamento} onChange={e => setDataAgendamento(e.target.value)}  />
                         </div>
                         <div className='caixa'>
                             <p>Valor*</p>
-                            <input class="caixa" type="text" value={valor} onChange={e => setValor(e.target.value)} /> 
+                            <input className="caixa" type="text" value={valorAgendamento} onChange={e => setValorAgendamento(e.target.value)} /> 
                         </div>
                     </div>
                     <div>
                         <p className='caixa-txt'>Qual a forma de pagamento?</p>
                         <div className='radio'>
                             
-                            <input type='radio' name='Pix'></input>Pix
+                            <input type='radio' name='Pix' checked={forma_pag} onChange={e => setForma_pag(e.target.checked)}> PIX </input>
                         </div>
                         <div className='radio'>
-                            <input type='radio' name='Dinheiro'></input>Dinheiro
+                            <input type='radio' name='Dinheiro' checked={forma_pag} onChange={e => setForma_pag(e.target.checked)} > Dinheiro </input>
                         </div>
                         <div className='radio'>
-                            <input type='radio' name='Débito'></input>Cartão de débito
+                            <input type='radio' name='Débito' checked={forma_pag} onChange={e => setForma_pag(e.target.checked)} > Cartão de débito </input>
                         </div>
                         <div className='radio'>
-                            <input type='radio' name='Crédito'></input>Cartão de crédito
+                            <input type='radio' name='Crédito' checked={forma_pag} onChange={e => setForma_pag(e.target.checked)} > Cartão de crédito </input>
                         </div>
                     </div>
                     <div>
                         <p className='caixa-txt'>Data do pagamento</p>
                         <div className='radio' name='dia'>
-                            <input type='radio' name='dia'></input>Será realizado no dia da consulta
+                            <input type='radio' name='dia' checked={data_pag} onChange={e => setData_pag(e.target.checked)}> Será realizado no dia da consulta </input>
                         </div>
                         <div className='radio'>
-                            <input type='radio' name='realizado'></input>Pagamneto já foi realizado
+                            <input type='radio' name='realizado' checked={data_pag} onChange={e => setData_pag(e.target.checked)}> Pagamneto já foi realizado </input>
                         </div>
                         <div className='radio'>
-                            <input type='radio' name='metade'></input>Pagamento realizado em 50
+                            <input type='radio' name='metade' checked={data_pag} onChange={e => setData_pag(e.target.checked)} > Pagamento realizado em 50% </input>
                         </div>
                     </div>
                     <div className='f2-botao'>
-                        <a href= ''>
-                            <button className='botao'onClick={SalvarClick}>Salvar
-                            </button>
-                        </a>
+                        <button className='botao'onClick={SalvarClick}> Salvar </button>
                     </div>
                 </div>
             </section>
