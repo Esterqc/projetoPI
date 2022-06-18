@@ -40,11 +40,6 @@ export default function Administrativo(){
                                 Consultas
                             </button>
                         </a>
-                        <a href='/admin/agendamento'>
-                            <button>
-                                Pesquisar consultas
-                            </button>
-                        </a>
                     </div>
                 </div>
             </section>
