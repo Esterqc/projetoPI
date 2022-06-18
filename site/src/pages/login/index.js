@@ -1,6 +1,7 @@
-import axios from 'axios'
+import { login } from '../../api/usuarioApi'
 import { useNavigate } from 'react-router-dom'
 
+import storage from 'local-storage'
 import LoadingBar from 'react-top-loading-bar'
 import { useState, useRef } from 'react'
 import './index.scss'
@@ -10,6 +11,7 @@ export default function Index() {
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
   const [erro, setErro] = useState('');
+  const [carregando, setCarregando] = useState(false);
 
   const navigate = useNavigate();
   const ref = useRef();
@@ -17,16 +19,19 @@ export default function Index() {
 
   async function entrarClick() {
       ref.current.continuousStart();
+      setCarregando(true);
 
-      try {
-          const resposta = await axios .get('http://localhost:5000/usuario/login', { 
-              email: email, 
-              senha: senha 
-          }); 
+      try { 
+          const resposta = await login(email, senha);
+          storage('usuario-logado', resposta);
 
-          navigate('/admin');
+          setTimeout(() => {
+            navigate('/admin');
+          }, 3000);
           
       } catch (err) {
+        ref.current.complete(); 
+        setCarregando(false);
         if (err.response.status === 401) {
           setErro(err.response.data.erro);
         }
@@ -64,7 +69,7 @@ export default function Index() {
             </div>
       
             <a href="/admin/home">
-              <button className="botao" onClick={entrarClick}>Entrar</button>
+              <button className="botao" onClick={entrarClick} disabled={carregando}>Entrar</button>
             </a>
             <div className='erro'>
                 {erro}
