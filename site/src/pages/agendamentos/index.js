@@ -9,29 +9,26 @@ import { useState } from 'react'
 
 
 export default function Index(){
-    const[nome,setNome] =useState('');
+    const [nome, setNome] =useState('');
     const [idade, setIdade] = useState('');
     const [nasc, setData_de_nascimento] = useState('');
     const [cpf, setCpf] = useState('');
     const [rg, setRg] = useState('');
     const [doutor, setDoutor] = useState('');
-
     const [servicos, setServicos] = useState('');
     const [dataAgendamento, setData_e_hora] = useState('');
-    const [ valor, setValor] = useState('');
-    const [forma_pag, setForma_de_pagamento] = useState('');
-    const [data_pag, setData_do_pagamento] = useState('');
-
-    
-
-    
+    const [valor, setValor] = useState('');
+    const [forma_pag, setForma_pag] = useState('');
+    const [data_pag, setData_pag] = useState('');
 
 
     async function SalvarClick() {
         try{
             const usuario = storage('usuario-logado').id;
-            const r = await inserirAgendamento(nome,idade,nasc,cpf,rg,doutor,servicos,dataAgendamento,valor,forma_pag,data_pag,usuario);
-
+            const r = await inserirAgendamento(nome, idade, nasc, cpf, rg, doutor, servicos, dataAgendamento, valor, forma_pag, data_pag, usuario);
+            console.log(doutor)
+            console.log(dataAgendamento)
+            console.log(usuario )
             toast('Agendamento cadastrado com sucesso!');
         } catch (err){
             toast.error(err.message)
@@ -60,7 +57,7 @@ export default function Index(){
                     </div>
                     <div className='caixa'>
                         <p>Qual a idade*</p>
-                        <input className="idade" type="idade" value={idade} onChange={e => setIdade(e.target.value)}  />
+                        <input className="idade" type="idade" value={idade} onChange={e => setIdade (e.target.value)}  />
                     </div>
                     <div className='caixa'>
                         <p>Data de nascimento*</p>
@@ -73,31 +70,31 @@ export default function Index(){
                     </div>
                     <div className='caixa'>
                         <p>RG*</p>
-                        <input className='txt' type='text'></input>
+                        <input className='txt' type='text' value={rg} onChange={e => setRg(e.target.value)}></input>
                     </div>
                     <div className='f2-doutor'>
                         <h3 className='caixa-txt'>Doutor</h3>
                         <div className='radio'>
-                            <input type='radio' name='Doutor' value='Dra.Mônica Araujo'/>Dra. Mônica Araujo
+                                <input type='radio' name='Doutor' value={'Dra. Mônica Araujo'} checked={e => setDoutor(e.target.value)}/>Dra. Mônica Araujo
                         </div>
                         <div className='radio'>
-                            <input type='radio' name='Doutor'/>Dra. Hana Lewis
+                                <input type='radio' name='Doutor' value={'Dra. Hana Lewis'} checked={e => setDoutor(e.target.value)}/>Dra. Hana Lewis
                         </div>
                         <div className='radio'>
-                            <input type='radio' name='Doutor'/>Dr. Yuri Ikari
+                            <input type='radio' name='Doutor' value={'Dr. Yuri Ikari'} checked={e => setDoutor(e.target.value)} />Dr. Yuri Ikari
                         </div>
                         <div className='radio'>
-                            <input type='radio' name='Doutor'/>Dr. Fernando Winson
+                            <input type='radio' name='Doutor' value={'Dr. Fernando Winson'} checked={e => setDoutor(e.target.value)}/>Dr. Fernando Winson
                         </div>
                     </div>
                     <div>
                         <div className='caixa-txt'>
                             <p>Serviços*</p>
-                            <input className='txt' type='text'></input>
+                            <input className='txt' type='text' value={servicos} onChange={e => setServicos(e.target.value)}></input>
                         </div>
                         <div className='caixa'>
                             <p>Data e hora*</p>
-                            <input className="caixa" type="text" value={dataAgendamento} onChange={e => setData_e_hora(e.target.value)} /> 
+                            <input className="caixa" type="date" value={dataAgendamento} onChange={e => setData_e_hora(e.target.value)} /> 
                         </div>
                         <div className='caixa'>
                             <p>Valor*</p>
@@ -108,35 +105,32 @@ export default function Index(){
                         <p className='caixa-txt'>Qual a forma de pagamento?</p>
                         <div className='radio'>
                             
-                            <input type='radio' name='Pix'></input>Pix
+                            <input type='radio' name='Pix' value={'Pix'} checked={e => setForma_pag(e.target.value)}> PIX </input>
                         </div>
                         <div className='radio'>
-                            <input type='radio' name='Dinheiro'></input>Dinheiro
+                            <input type='radio' name='Dinheiro' value={'Dinheiro'} checked={e => setForma_pag(e.target.value)} > Dinheiro </input>
                         </div>
                         <div className='radio'>
-                            <input type='radio' name='Débito'></input>Cartão de débito
+                            <input type='radio' name='Débito' value={'Débito'} checked={e => setForma_pag(e.target.value)} > Cartão de débito </input>
                         </div>
                         <div className='radio'>
-                            <input type='radio' name='Crédito'></input>Cartão de crédito
+                            <input type='radio' name='Crédito' value={'Crédito'} checked={e => setForma_pag(e.target.value)} > Cartão de crédito </input>
                         </div>
                     </div>
                     <div>
                         <p className='caixa-txt'>Data do pagamento</p>
                         <div className='radio' name='dia'>
-                            <input type='radio' name='dia'></input>Será realizado no dia da consulta
+                            <input type='radio' name='dia' value={data_pag} checked={e => setData_pag(e.target.value)}> Será realizado no dia da consulta </input>
                         </div>
                         <div className='radio'>
-                            <input type='radio' name='realizado'></input>Pagamneto já foi realizado
+                            <input type='radio' name='realizado' value={data_pag} checked={e => setData_pag(e.target.value)}> Pagamneto já foi realizado </input>
                         </div>
                         <div className='radio'>
-                            <input type='radio' name='metade'></input>Pagamento realizado em 50
+                            <input type='radio' name='metade' value={data_pag} checked={e => setData_pag(e.target.value)} > Pagamento realizado em 50% </input>
                         </div>
                     </div>
                     <div className='f2-botao'>
-                        
-                            <button className='botao'onClick={SalvarClick}>Salvar
-                            </button>
-                        
+                        <button className='botao'onClick={SalvarClick}> Salvar </button>
                     </div>
                 </div>
             </section>

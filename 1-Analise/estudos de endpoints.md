@@ -4,7 +4,7 @@
 
 ### (1° CASO DE USO) => _LOGIN_
 
-/POST   /usuario/login
+/POST   /login
 
 _request_
 
