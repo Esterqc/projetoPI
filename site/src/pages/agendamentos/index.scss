@@ -3,6 +3,67 @@
     .cabecalho{
         display: flex;
         flex-direction: row;
+        justify-content: space-between;
+        align-items:center;
+
+        padding: 5px;
+        margin: 15px;
+    }
+    .img-cabecalho{
+
+    }
+    .titulo-cabecalho{
+
+    }
+    .barraPesquisa-cabecalho{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .faixa-principal{
+        display: flex;
+        justify-content: space-around;
+        background-color: #2f9c7c;
+        padding: 20px;
+    }
+    .card{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        background-color: white;
+        border: solid 1px   green;
+        border-radius: 25px;
+
+        width: 30em;
+    }
+    .titulo-card{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: end;
         
+        width: 20em;
+    }
+    .titulo-card h4{
+        margin-right: 100px;
+    }
+    .titulo-card img{
+        padding: 05px;
+    }
+    .data-card{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+
+        width: 20em;
+    }
+    .data-card img{
+        height: 40px;
+    }
+    .descricao-card{
+        padding-top: 10px;
+        width: 20em;
     }
 }
