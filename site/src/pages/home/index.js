@@ -1,18 +1,21 @@
 import './index.scss';
 
-
+import { useNavigate } from 'react-router-dom';
 
 
 export default function Home(){
+
+    const navigate = useNavigate();
+
     return(
         <main className='page-home'>
             <nav className='faixa-1'>
                 <div className='logo'>
                     <div>
-                        <img src='/images/odontotooths 1.svg' alt=''></img>
+                        <img src='/images/odontotooths1.svg' alt=''></img>
                     </div>
                     <div>
-                    <a className='login' href='/login'>Login</a>
+                    <a className='login' href='admin'>Login</a>
                     </div>
                 </div>
             </nav>
