@@ -63,7 +63,7 @@ export default function Index() {
                 <img src="/images/cadeado 1.svg" alt="cadeado" width='30'/>
             </div>
       
-            <a href="../administrativo">
+            <a href="/admin/home">
               <button className="botao" onClick={entrarClick}>Entrar</button>
             </a>
             <div className='erro'>
@@ -76,7 +76,3 @@ export default function Index() {
     </main>
   );
 }
-
-
-
-

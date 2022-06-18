@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "nodemon": "^2.0.16",
     "react-top-loading-bar": "^2.1.0"
   }
 }
