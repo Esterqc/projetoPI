@@ -100,34 +100,20 @@ server.delete("/agendamento/:id", async (req, resp) => {
   }
 });
 
-server.put("/alterardados/:id", async (req, resp) => {
+server.put("/agendamento/:id", async (req, resp) => {
   try {
-    const agendamento = req.body;
-    const { id } = req.params;
+    const novoAgendamento = req.body;
+    const id  = req.params.id;
 
     if (!novoAgendamento.nome)
       throw new Error("Nome Do Paciente é obrigatorio!");
+    if (!novoAgendamento.servico)
+       throw new Error(" servico é obrigatorio!");
 
-    if (!novoAgendamento.idade)
-      throw new Error("Idade Do Paciente é obrigatorio!");
-
-    if (!novoAgendamento.nasc)
-      throw new Error("Data de nasc Do Paciente é obrigatorio!");
-
-    if (!novoAgendamento.cpf)
-      throw new Error("cpf Do Paciente é obrigatorio!");
-
-    if (!novoAgendamento.rg) throw new Error("rg Do Paciente é obrigatorio!");
-
-    if (!novoAgendamento.doutor)
-      throw new Error(" nome do doutor é obrigatorio!");
-
-    if (!novoAgendamento.servico) throw new Error(" servico é obrigatorio!");
-
-    if (!novoAgendamento.agendamento)
+    if (!novoAgendamento.dataAgendamento)
       throw new Error("  agendamento é obrigatorio!");
 
-    const resposta = await alterardadosdaconsulta(id, agendamento);
+    const resposta = await alterardadosdaconsulta(id, novoAgendamento);
     if (resposta != 1)
       throw new Error("Agendamento não pode ser alterado");
 
