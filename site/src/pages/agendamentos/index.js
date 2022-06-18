@@ -1,5 +1,6 @@
 
 import './index.scss'
+import { useEffect, useState} from 'react'
 
 import logo from '../../assets/images/logo.png';
 import lupa from '../../assets/images/lupa.png';
@@ -7,7 +8,27 @@ import lapis from '../../assets/images/ferramenta-lapis.png';
 import lixeira from '../../assets/images/lixeira.png';
 import calendario from '../../assets/images/calendario.png';
 
+import { listarTodasConsultas, consultarData, removerConsulta } from '../../api/agendamentoApi'
+
+
 export default function Index(){
+    const [consultar, setConsultar] = useState([]);
+    const [filtro, setFiltro] = useState('');
+    
+    async function filtrar() {
+        const resp = await consultarData(filtro);
+        setConsultar(resp); 
+    }
+
+    async function carregarTodasConsultas() {
+        const resp = await listarTodasConsultas();
+        setConsultar(resp);
+    }
+
+
+    useEffect(() => {
+        carregarTodasConsultas()
+    })
 
 
     return(
@@ -22,8 +43,8 @@ export default function Index(){
                     </h3>
                 </div>
                 <div className='barraPesquisa-cabecalho'>
-                    <input type='text' placeholder='Digite a data da consulta' />
-                    <img src={lupa} />
+                    <input type='text' placeholder='Digite a data da consulta' value={filtro} onChange={e => setFiltro(e.target.value)} />
+                    <img src={lupa} onClick={filtrar}/>
                 </div>
             </section>
             <section className='faixa-principal'>

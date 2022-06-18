@@ -20,5 +20,14 @@ export async function inserirAgendamento(nome, idade, nasc, cpf, rg, doutor, ser
     return resposta.data;
 }
         
-        
-    
+
+export async function listarTodasConsultas() {
+    const resposta = await api.get('/consultas');
+    return resposta.data;
+}
+
+
+export async function consultarData(data) {
+    const resposta = await api.get(`/consultas/busca?data=${data}`);
+    return resposta.data;
+}       
