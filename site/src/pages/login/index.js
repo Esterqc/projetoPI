@@ -1,10 +1,10 @@
-import { login } from '../../api/usuarioApi'
-import { useNavigate } from 'react-router-dom'
+import { login } from '../../api/usuarioApi.js'; 
+import { useNavigate } from 'react-router-dom';
 
-import storage from 'local-storage'
-import LoadingBar from 'react-top-loading-bar'
-import { useState, useRef } from 'react'
-import './index.scss'
+import storage from 'local-storage';
+import LoadingBar from 'react-top-loading-bar';
+import { useState, useRef, useEffect } from 'react';
+import './index.scss';
 
 
 export default function Index() {
@@ -16,32 +16,37 @@ export default function Index() {
   const navigate = useNavigate();
   const ref = useRef();
 
+  useEffect(() => {
+    if(storage('usuario-logado')){
+      navigate('/admin/home');
+    }
+  });
+
 
   async function entrarClick() {
-      ref.current.continuousStart();
-      setCarregando(true);
+    ref.current.continuousStart();
 
-      try { 
-          const resposta = await login(email, senha);
-          storage('usuario-logado', resposta);
+    try {
+      setCarregando(true)
+      const resposta = await login(email, senha) 
+      storage('usuario-logado', resposta)
+      setTimeout(() => {
+        navigate('/admin/home');
+      }, 2000)
 
-          setTimeout(() => {
-            navigate('/admin');
-          }, 3000);
-          
-      } catch (err) {
-        ref.current.complete(); 
-        setCarregando(false);
-        if (err.response.status === 401) {
-          setErro(err.response.data.erro);
-        }
+    } catch (err) {
+      ref.current.complete();
+      setCarregando(false)
+      if (err.response.status === 401) {
+        setErro(err.response.data.erro);
       }
+    }
 
   }
 
   return (
     <main className='page-login'>
-       <LoadingBar color='#2BC8A2' ref={ref} />
+      <LoadingBar color='#287D01' ref={ref} />
 
       <section className='faixa-login'>
         <div className="logo">
@@ -53,26 +58,26 @@ export default function Index() {
             <div className="txt-icones">
               <p>Seja bem-vindo</p>
             </div>
+
+
+            <div>
+              <h2 class="subtitulo"> E-mail*</h2>
+              <input class="tag-input" type="text" placeholder='ex: exemplo@gmail.com' value={email} onChange={e => setEmail(e.target.value)} />
+              <img src="/images/o-email 1.svg" alt="email" width='30' />
+            </div>
+
+            <div>
+              <h2 class="subtitulo">Senha*</h2>
+
+              <input class="tag-input" type="password" placeholder='***' value={senha} onChange={e => setSenha(e.target.value)} />
+              <img src="/images/cadeado 1.svg" alt="cadeado" width='30' />
+            </div>
+
             
-
-            <div>
-                <h2 class="subtitulo"> E-mail*</h2> 
-                <input class="tag-input" type="text" name="email"  value={email} onChange={e => setEmail(e.target.value)} />
-                <img src="/images/o-email 1.svg" alt="email" width='30'/>
-            </div>
-
-            <div>
-                <h2 class="subtitulo">Senha*</h2>
-               
-                <input class="tag-input" type="password" name="senha"  value={senha} onChange={e => setSenha(e.target.value)}/>
-                <img src="/images/cadeado 1.svg" alt="cadeado" width='30'/>
-            </div>
-      
-            <a href="/admin/home">
-              <button className="botao" onClick={entrarClick} disabled={carregando}>Entrar</button>
-            </a>
+            <button className="botao" onClick={entrarClick} disabled={carregando}>Entrar</button>
+            
             <div className='erro'>
-                {erro}
+              {erro}
             </div>
           </div>
 

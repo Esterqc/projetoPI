@@ -1,10 +1,10 @@
 import './index.scss'
 import storage from 'local-storage'
-import {cadastrarAgendamento} from '../../api/AgendamentoApi.js'
+import {inserirAgendamento} from '../../api/agendamentoApi.js'
 
 import { useState } from 'react'
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from 'react-toast';
+
 
 
 export default function Index(){
@@ -29,7 +29,7 @@ export default function Index(){
     async function SalvarClick() {
         try{
             const usuario = storage('usuario-logado').id;
-            const r = await cadastrarAgendamento(nome,idade,data_de_nascimento,cpf,rg,doutor,serviços,data_e_hora,valor,forma_de_pagamento,data_do_pagamento,usuario);
+            const r = await inserirAgendamento(nome,idade,data_de_nascimento,cpf,rg,doutor,serviços,data_e_hora,valor,forma_de_pagamento,data_do_pagamento,usuario);
 
             toast('Agendamento cadastrado com sucesso!');
         } catch (err){
