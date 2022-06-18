@@ -103,34 +103,34 @@ export default function Index(){
                     <div>
                         <p className='caixa-txt'>Qual a forma de pagamento?</p>
                         <div className='radio'>
-                            <input type='radio' name='Pix' checked={forma_pag} onChange={e => setForma_pag(e.target.checked)} />
+                            <input type='radio' name='valor' checked={forma_pag} onChange={e => setForma_pag(e.target.checked)} />
                             <p>PIX</p>
                         </div>
                         <div className='radio'>
-                            <input type='radio' name='Dinheiro' checked={forma_pag} onChange={e => setForma_pag(e.target.checked)} />
+                            <input type='radio' name='valor' checked={forma_pag} onChange={e => setForma_pag(e.target.checked)} />
                             <p>Dinheiro</p>
                         </div>
                         <div className='radio'>
-                            <input type='radio' name='Débito' checked={forma_pag} onChange={e => setForma_pag(e.target.checked)} />
+                            <input type='radio' name='valor' checked={forma_pag} onChange={e => setForma_pag(e.target.checked)} />
                             <p>Cartão de débito</p>
                         </div>
                         <div className='radio'>
-                            <input type='radio' name='Crédito' checked={forma_pag} onChange={e => setForma_pag(e.target.checked)} />
+                            <input type='radio' name='valor' checked={forma_pag} onChange={e => setForma_pag(e.target.checked)} />
                             <p>Cartão de crédito</p>
                         </div>
                     </div>
                     <div>
                         <p className='caixa-txt'>Data do pagamento</p>
                         <div className='radio' name='dia'>
-                            <input type='radio' name='dia' checked={data_pag} onChange={e => setData_pag(e.target.checked)} />
+                            <input type='radio' name='pagamento' checked={data_pag} onChange={e => setData_pag(e.target.checked)} />
                             <p>Será realizado no dia da consulta</p>
                         </div>
                         <div className='radio'>
-                            <input type='radio' name='realizado' checked={data_pag} onChange={e => setData_pag(e.target.checked)} />
+                            <input type='radio' name='pagamento' checked={data_pag} onChange={e => setData_pag(e.target.checked)} />
                             <p>Pagamento já foi realizado</p>
                         </div>
                         <div className='radio'>
-                            <input type='radio' name='metade' checked={data_pag} onChange={e => setData_pag(e.target.checked)} />
+                            <input type='radio' name='pagamento' checked={data_pag} onChange={e => setData_pag(e.target.checked)} />
                             <p>Pagamento realizado em 50%</p>
                         </div>
                     </div>
