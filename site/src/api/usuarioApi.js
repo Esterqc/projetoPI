@@ -5,10 +5,10 @@ const api = axios.create({
 })
 
 export async function login(email, senha) {
-    const r = await api.post('/login', {
+    const resposta = await api.post('/login', {
         email: email, 
         senha: senha
     })
 
-    return r.data;
+    return resposta.data;
 }

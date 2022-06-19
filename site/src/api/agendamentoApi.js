@@ -31,3 +31,16 @@ export async function consultarData(data) {
     const resposta = await api.get(`/consultas/busca?data=${data}`);
     return resposta.data;
 }       
+
+
+export async function removerConsulta(id) {
+    const resposta = await api.delete(`/agendamento/${id}`);
+    return resposta.status;
+}
+
+
+export async function alterardadosdaconsulta(id) {
+    const resposta = await api.get(`/agendamento/${id}`);
+    return resposta.data;
+}
+    

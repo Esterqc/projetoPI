@@ -1,9 +1,11 @@
 
 import './index.scss'
 
-import {inserirAgendamento} from '../../api/agendamentoApi.js'
+import {inserirAgendamento, alterardadosdaconsulta } from '../../api/agendamentoApi.js'
 import { useState } from 'react'
 
+import { useParams } from 'react-router-dom'
+import { toast } from 'react-toastify'
 
 export default function Index(){
     const [nome, setNome] = useState('');
@@ -18,6 +20,22 @@ export default function Index(){
     const [forma_pag, setForma_pag] = useState('');
     const [data_pag, setData_pag] = useState('');
 
+    const [id, setId] = useState(0);
+    const { idParam } = useParams();
+
+    useEffect(() => { 
+        if (idParam) {
+            carregarConsulta()
+        }
+    }, [])
+
+    async function carregarConsulta() {
+        const resposta = await alterardadosdaconsulta(idParam);
+        setNome(resposta.nome);
+        setDoutor(resposta.doutor);
+        setDataAgendamento(resposta.dataAgendamento.Substr(0,10));
+        setId(resposta.Id);
+    }
 
     async function SalvarClick() {
         try{

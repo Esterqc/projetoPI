@@ -15,6 +15,9 @@ export default function Index() {
                 <Route path='/admin' element={<Login />} />
                 <Route path='/admin/home' element={<Administrativo />} />
                 <Route path='/admin/agendar' element={<Agendar />} />
+
+                <Route path='/admin/alterar/:idParam' element={<Agendar />} />
+                
                 <Route path='/admin/agendamento' element={<Agendamentos />} />
             </Routes>
         </BrowserRouter>

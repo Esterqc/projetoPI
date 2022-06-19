@@ -1,6 +1,4 @@
-
 import './index.scss'
-import { useEffect, useState} from 'react'
 
 import logo from '../../assets/images/logo.png';
 import lupa from '../../assets/images/lupa.png';
@@ -10,11 +8,40 @@ import calendario from '../../assets/images/calendario.png';
 
 import { listarTodasConsultas, consultarData, removerConsulta } from '../../api/agendamentoApi'
 
+import { confirmAlert } from 'react-confirm-alert'
+import { toast } from 'react-toastify'
+import { useEffect, useState} from 'react'
 
 export default function Index(){
     const [consultar, setConsultar] = useState([]);
     const [filtro, setFiltro] = useState('');
     
+
+    async function removerConsultaClick (id, nome) {
+
+        confirmAlert({
+            title: 'Remover filme',
+            message: `Deseja remover a consulta ${nome}?`,
+            buttons: [
+                {
+                    label: 'Sim',
+                    onClick: async () => {
+                        const resposta = await removerConsulta(id, nome);
+                        if (filtro === '')
+                            carregarTodasConsultas();
+                        else
+                            filtrar();
+                        toast.dark('Consulta removida!');
+                    }
+                },
+                {
+                    label: 'Não'
+                }
+            ]
+        })
+         
+    }
+
     async function filtrar() {
         const resp = await consultarData(filtro);
         setConsultar(resp); 
@@ -47,27 +74,10 @@ export default function Index(){
                     <img src={lupa} onClick={filtrar}/>
                 </div>
             </section>
-            <section className='faixa-principal'>
-                    <div className='card'>
-                        <div className='titulo-card' >
-                            <h4> Consulta </h4>
-                            <div className='img-cards'>
-                                <img src={lapis} />
-                                <img src={lixeira} />
-                            </div>
-                        </div>
-                        
-                        <div className='data-card'>
-                            <img src={calendario} />
-
-                            <p> dd/mm/aaaa</p>
-                        </div>
-
-                        <div className='descricao-card'>
-                            <p> Maria de Loudes Rodrigues</p>
-                            <p> Dra. Hanna Lewis</p>
-                        </div>
-                    </div>
+            
+            {consultar.map(item => 
+                
+                <section className='faixa-principal'>
                     
                     <div className='card'>
                         <div className='titulo-card' >
@@ -85,11 +95,36 @@ export default function Index(){
                         </div>
 
                         <div className='descricao-card'>
+                            <p> {item.nome} </p>
+                            <p> {item.doutor} </p>
+                        </div>
+                    </div>
+                    
+                    <div className='card'>
+                        <div className='titulo-card'>
+                            <h4> Consulta </h4>
+                            <div className='img-cards'>
+                                <img src={lapis} />
+                                <img src={lixeira} onClick={() => removerConsultaClick(item.id, item.nome)} />
+                            </div>
+                        </div>
+                        
+                        <div className='data-card'>
+                            <img src={calendario} />
+
+                            <p> dd/mm/aaaa</p>
+                        </div>
+
+                        <div className='descricao-card'>
                             <p> Maria de Loudes Rodrigues</p>
                             <p> Dra. Hanna Lewis</p>
                         </div>
                     </div>
-            </section>
+                </section>   
+            
+            )}
+                 
+            
 
         </main>
     );
