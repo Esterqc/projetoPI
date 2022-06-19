@@ -9,8 +9,8 @@ import calendario from '../../assets/images/calendario.png';
 import { listarTodasConsultas, consultarData, removerConsulta } from '../../api/agendamentoApi'
 
 import { confirmAlert } from 'react-confirm-alert'
-import { toast } from 'react-toastify'
-import { useEffect, useState} from 'react'
+import { toast } from 'react-toast'
+import { useEffect, useState} from 'react'  
 
 export default function Index(){
     const [consultar, setConsultar] = useState([]);
@@ -20,7 +20,7 @@ export default function Index(){
     async function removerConsultaClick (id, nome) {
 
         confirmAlert({
-            title: 'Remover filme',
+            title: 'Remover Consulta',
             message: `Deseja remover a consulta ${nome}?`,
             buttons: [
                 {
@@ -84,27 +84,6 @@ export default function Index(){
                             <h4> Consulta </h4>
                             <div className='img-cards'>
                                 <img src={lapis} />
-                                <img src={lixeira} />
-                            </div>
-                        </div>
-                        
-                        <div className='data-card'>
-                            <img src={calendario} />
-
-                            <p> dd/mm/aaaa</p>
-                        </div>
-
-                        <div className='descricao-card'>
-                            <p> {item.nome} </p>
-                            <p> {item.doutor} </p>
-                        </div>
-                    </div>
-                    
-                    <div className='card'>
-                        <div className='titulo-card'>
-                            <h4> Consulta </h4>
-                            <div className='img-cards'>
-                                <img src={lapis} />
                                 <img src={lixeira} onClick={() => removerConsultaClick(item.id, item.nome)} />
                             </div>
                         </div>
@@ -112,14 +91,14 @@ export default function Index(){
                         <div className='data-card'>
                             <img src={calendario} />
 
-                            <p> dd/mm/aaaa</p>
+                            <p> {item.agendamento}</p>
                         </div>
-
                         <div className='descricao-card'>
-                            <p> Maria de Loudes Rodrigues</p>
-                            <p> Dra. Hanna Lewis</p>
+                            <p> {item.paciente} </p>
+                            <p> {item.doutor} </p>
                         </div>
                     </div>
+                    
                 </section>   
             
             )}

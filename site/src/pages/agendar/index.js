@@ -2,10 +2,10 @@
 import './index.scss'
 
 import {inserirAgendamento, alterardadosdaconsulta } from '../../api/agendamentoApi.js'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 import { useParams } from 'react-router-dom'
-import { toast } from 'react-toastify'
+// import { toast } from 'react-toastify'
 
 export default function Index(){
     const [nome, setNome] = useState('');

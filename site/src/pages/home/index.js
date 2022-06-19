@@ -7,6 +7,10 @@ export default function Home(){
 
     const navigate = useNavigate();
 
+    function navegarClick(){
+        navigate('/admin')
+    }
+
     return(
         <main className='page-home'>
             <nav className='faixa-1'>
@@ -15,7 +19,7 @@ export default function Home(){
                         <img src='/images/odontotooths1.svg' alt=''></img>
                     </div>
                     <div>
-                    <a className='login' href='admin'>Login</a>
+                    <a className='login' onClick={navegarClick}>Login</a>
                     </div>
                 </div>
             </nav>
