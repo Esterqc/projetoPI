@@ -85,26 +85,16 @@ export default function Index(){
                         <p>RG*</p>
                         <input className='txt' type='text' value={rg} onChange={e => setRg(e.target.value)} />
                     </div>
+                   
                     <div className='f2-doutor'>
-                        <h3 className='caixa-txt'>Doutor</h3>
-                        <div className='radio'>
-                            <input type='radio' name='Doutor' checked={doutor} onChange={e => setDoutor(e.target.checked)} />
-                            <p>Dra. Mônica Araujo</p>
-                        </div>
-                        <div className='radio'>
-                            <input type='radio' name='Doutor' checked={doutor} onChange={e => setDoutor(e.target.checked)} />
-                            <p>Dra. Hana Lewis</p>
-                        </div>
-                        <div className='radio'>
-                            <input type='radio' name='Doutor' checked={doutor} onChange={e => setDoutor(e.target.checked)} />
-                            <p>Dr. Yuri Ikari</p>
-                        </div>
-                        <div className='radio'>
-                            <input type='radio' name='Doutor' checked={doutor} onChange={e => setDoutor(e.target.checked)} />
-                            <p>Dr. Fernando Winson</p>
-                        </div>
-                    </div>
-                    <div>
+                        <p>Doutor</p>
+                    <select value={doutor} onChange={(e) =>setDoutor(e.target.value)}>
+                        <option>Dra.Monica Araujo</option>
+                        <option>Dra. Hana Lewis</option>
+                        <option>Dr.Yuri Ikar</option>
+                        <option> Dr.Fernando Winson</option>
+                     </select>
+                        
                         <div className='caixa-txt'>
                             <p>Serviços*</p>
                             <input className='txt' type='text' value={servico} onChange={e => setServico(e.target.value)} />
@@ -118,38 +108,25 @@ export default function Index(){
                             <input className="caixa" type="text" value={valorAgendamento} onChange={e => setValorAgendamento(e.target.value)} /> 
                         </div>
                     </div>
-                    <div>
-                        <p className='caixa-txt'>Qual a forma de pagamento?</p>
-                        <div className='radio'>
-                            <input type='radio' name='valor' checked={forma_pag} onChange={e => setForma_pag(e.target.checked)} />
-                            <p>PIX</p>
+                 
+                    <div className='f2-doutor'>
+                        <p >Qual a forma de pagamento?</p>
+                            <select value={forma_pag} onChange={(e) =>setForma_pag(e.target.value)}>
+                            <option>PIX</option>
+                            <option>Dinheiro</option>
+                            <option>Cartão de débito</option>
+                            <option>Cartão de crédito</option>
+                        </select>
                         </div>
-                        <div className='radio'>
-                            <input type='radio' name='valor' checked={forma_pag} onChange={e => setForma_pag(e.target.checked)} />
-                            <p>Dinheiro</p>
-                        </div>
-                        <div className='radio'>
-                            <input type='radio' name='valor' checked={forma_pag} onChange={e => setForma_pag(e.target.checked)} />
-                            <p>Cartão de débito</p>
-                        </div>
-                        <div className='radio'>
-                            <input type='radio' name='valor' checked={forma_pag} onChange={e => setForma_pag(e.target.checked)} />
-                            <p>Cartão de crédito</p>
-                        </div>
-                    </div>
                     <div>
                         <p className='caixa-txt'>Data do pagamento</p>
                         <div className='radio' name='dia'>
-                            <input type='radio' name='pagamento' checked={data_pag} onChange={e => setData_pag(e.target.checked)} />
-                            <p>Será realizado no dia da consulta</p>
-                        </div>
-                        <div className='radio'>
-                            <input type='radio' name='pagamento' checked={data_pag} onChange={e => setData_pag(e.target.checked)} />
-                            <p>Pagamento já foi realizado</p>
-                        </div>
-                        <div className='radio'>
-                            <input type='radio' name='pagamento' checked={data_pag} onChange={e => setData_pag(e.target.checked)} />
-                            <p>Pagamento realizado em 50%</p>
+                        <select value={data_pag} onChange={(e) =>setData_pag(e.target.value)}>
+                            
+                            <option>Será realizado no dia da consulta</option>
+                            <option>Pagamento já foi realizado</option>
+                            <option>Pagamento realizado em 50%</option>
+                            </select>
                         </div>
                     </div>
                     <div className='f2-botao'>
