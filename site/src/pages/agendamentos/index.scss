@@ -20,8 +20,13 @@
         justify-content: center;
         align-items: center;
     }
+    .barraPesquisa-cabecalho img:hover{
+        cursor: pointer;
+        transform: scale(1.1, 1.1);
+    }
     .faixa-principal{
         display: flex;
+        flex-direction: row;
         justify-content: space-around;
         background-color: #2f9c7c;
         padding: 20px;
@@ -51,6 +56,10 @@
     .titulo-card img{
         padding: 05px;
     }
+    .titulo-card img:hover{
+        cursor: pointer;
+        transform: scale(1.1, 1.1)
+    }
     .data-card{
         display: flex;
         flex-direction: row;
@@ -60,7 +69,8 @@
         width: 20em;
     }
     .data-card img{
-        height: 40px;
+        margin-right: 10px;
+        height: 25px;
     }
     .descricao-card{
         padding-top: 10px;

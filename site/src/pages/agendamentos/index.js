@@ -84,27 +84,23 @@ export default function Index(){
                             <h4> Consulta </h4>
                             <div className='img-cards'>
                                 <img src={lapis} />
-                                <img src={lixeira} onClick={() => removerConsultaClick(item.id, item.nome)} />
+                                <img src={lixeira} onClick={() => removerConsultaClick(item.id, item.paciente)} />
                             </div>
                         </div>
                         
                         <div className='data-card'>
+
                             <img src={calendario} />
 
-                            <p> {item.agendamento}</p>
+                            <p> {item.agendamento.substr(0, 10)}</p>
                         </div>
                         <div className='descricao-card'>
-                            <p> {item.paciente} </p>
-                            <p> {item.doutor} </p>
+                            <p>Nome: {item.paciente} </p>
+                            <p>Doutor(a): {item.doutor} </p>
                         </div>
                     </div>
-                    
                 </section>   
-            
             )}
-                 
-            
-
         </main>
     );
 }
