@@ -13,12 +13,12 @@ export default function Index(){
     const [nasc, setNasc] = useState('');
     const [cpf, setCpf] = useState('');
     const [rg, setRg] = useState('');
-    const [doutor, setDoutor] = useState('');
+    const [doutor, setDoutor] = useState('Dra.Monica Araujo');
     const [servico, setServico] = useState('');
     const [dataAgendamento, setDataAgendamento] = useState('');
     const [valorAgendamento, setValorAgendamento] = useState('');
-    const [forma_pag, setForma_pag] = useState('');
-    const [data_pag, setData_pag] = useState('');
+    const [forma_pag, setForma_pag] = useState('PIX');
+    const [data_pag, setData_pag] = useState('Será realizado no dia da consulta');
 
     const [id, setId] = useState(0);
     const { idParam } = useParams();
@@ -31,9 +31,13 @@ export default function Index(){
 
     async function carregarConsulta() {
         const resposta = await alterardadosdaconsulta(idParam);
-        setNome(resposta.nome);
+        console.log(resposta);
+
+        setNome(resposta.paciente);
         setDoutor(resposta.doutor);
-        setDataAgendamento(resposta.dataAgendamento.Substr(0,10));
+        setValorAgendamento(resposta.preco);
+        setDataAgendamento(resposta.dataAgendamento.substr(0,10));
+
         setId(resposta.Id);
     }
 
@@ -44,8 +48,8 @@ export default function Index(){
             alert('Agendamento cadastrado com sucesso!');
         } 
         catch(err){
-            
-            alert(err.message)
+            console.log(err);
+            alert(err.response.data.erro)
         }
     }
 

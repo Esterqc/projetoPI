@@ -11,11 +11,18 @@ import { listarTodasConsultas, consultarData, removerConsulta } from '../../api/
 import { confirmAlert } from 'react-confirm-alert'
 import { toast } from 'react-toast'
 import { useEffect, useState} from 'react'  
+import { useNavigate } from 'react-router-dom';
 
 export default function Index(){
     const [consultar, setConsultar] = useState([]);
     const [filtro, setFiltro] = useState('');
+
     
+    const navigate = useNavigate();
+
+    async function alterarConsultaClick (id, nome) {
+        navigate('/admin/alterar/' + id);
+    }
 
     async function removerConsultaClick (id, nome) {
 
@@ -42,9 +49,12 @@ export default function Index(){
          
     }
 
+    
+
     async function filtrar() {
         const resp = await consultarData(filtro);
-        setConsultar(resp); 
+        console.log(resp);
+        setConsultar([...resp]); 
     }
 
     async function carregarTodasConsultas() {
@@ -55,7 +65,7 @@ export default function Index(){
 
     useEffect(() => {
         carregarTodasConsultas()
-    })
+    }, [])
 
 
     return(
@@ -83,7 +93,7 @@ export default function Index(){
                         <div className='titulo-card' >
                             <h4> Consulta </h4>
                             <div className='img-cards'>
-                                <img src={lapis} />
+                                <img src={lapis} onClick={() => alterarConsultaClick(item.id, item.paciente)}  />
                                 <img src={lixeira} onClick={() => removerConsultaClick(item.id, item.paciente)} />
                             </div>
                         </div>

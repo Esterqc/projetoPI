@@ -28,7 +28,7 @@ export async function listarTodasConsultas() {
 
 
 export async function consultarData(data) {
-    const resposta = await api.get(`/consultas/busca?data=${data}`);
+    const resposta = await api.get(`/consultar/busca?data=${data}`);
     return resposta.data;
 }       
 

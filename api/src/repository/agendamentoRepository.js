@@ -41,17 +41,44 @@ export async function listarTodasConsultas() {
   return linhas;
 }
 
+
+export async function consultarPorId(id) {
+  const comando = 
+    `SELECT id_agendamento          id,
+            nm_paciente             paciente,
+            nm_idade                idade,
+            dt_nascimento           nascimento,
+            ds_CPF                  cpf,
+            ds_RG                   rg,
+            nm_doutor               doutor,
+            ds_servico              servico,
+            dt_agendamento          agendamento,
+            vl_agendamento          preco,
+            ds_forma_pagamento      formaPagamento,
+            ds_data_pagameto       dataPagamento
+       FROM tb_agendamento  
+       WHERE id_agendamento = ?  `;
+
+  const [linhas] = await con.query(comando, [id]);
+  return linhas[0];
+}
+
+
 export async function consultarData(data) {
   const comando = 
-    `SELECT   id_agendamento    id,
-              nm_paciente       paciente,
-              ds_CPF            cpf,
-              nm_doutor         doutor,
-              ds_servico        servico,
-              dt_agendamento    data,
-              vl_agendamento    preco,
-              ds_data_pagameto  dataPagamento
-      FROM tb_agendamento
+    `SELECT id_agendamento          id,
+            nm_paciente             paciente,
+            nm_idade                idade,
+            dt_nascimento           nascimento,
+            ds_CPF                  cpf,
+            ds_RG                   rg,
+            nm_doutor               doutor,
+            ds_servico              servico,
+            dt_agendamento          agendamento,
+            vl_agendamento          preco,
+            ds_forma_pagamento      formaPagamento,
+            ds_data_pagameto       dataPagamento
+        FROM tb_agendamento
     WHERE dt_agendamento	like ?`;
 
   const [linhas] = await con.query(comando, [ `%${data}%` ]);
