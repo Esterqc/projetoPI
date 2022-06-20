@@ -43,6 +43,11 @@
     src: url(/public/fonts/font9.woff2);
 }
 
+@font-face {
+    font-family: 'font10';
+    src: url('../assets/fonts/Inter-Black.ttf');
+}
+
 * {
     margin: 0px;
     box-sizing: border-box;

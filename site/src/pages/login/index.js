@@ -71,7 +71,7 @@ export default function Index() {
                   <h2 class="subtitulo"> E-mail</h2>
                 </div>
                 <div>
-                  <input class="tag-input" type="text" placeholder='ex: exemplo@gmail.com' value={email} onChange={e => setEmail(e.target.value)} />
+                  <input class="tag-input" type="text" placeholder='   ex: exemplo@gmail.com' value={email} onChange={e => setEmail(e.target.value)} />
                 </div>
               </div>
   
@@ -81,7 +81,7 @@ export default function Index() {
                   <h2 class="subtitulo">Senha</h2>
                 </div>
                 <div>
-                  <input class="tag-input" type="password" placeholder='***' value={senha} onChange={e => setSenha(e.target.value)} />
+                  <input class="tag-input" type="password" placeholder='   ***' value={senha} onChange={e => setSenha(e.target.value)} />
                 </div>
               </div>
   
