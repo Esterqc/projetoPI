@@ -74,8 +74,10 @@ export default function Index(){
                 <div>
                     <h1>Agendar consulta</h1>
                     <div>
+                    <div className='caixa'>
                         <p>Nome do paciente*</p>
                         <input className="txt" type="text" value={nome} onChange={e => setNome(e.target.value)}   />
+                    </div>
                     </div>
                     <div className='caixa'>
                         <p>Qual a idade*</p>
@@ -95,16 +97,18 @@ export default function Index(){
                         <input className='txt' type='text' value={rg} onChange={e => setRg(e.target.value)} />
                     </div>
                    
-                    <div className='f2-doutor'>
+                    
+                    <div className='caixa'>
                         <p>Doutor</p>
-                    <select className='txt' value={doutor} onChange={(e) =>setDoutor(e.target.value)}>
+                    <select className='txt-1' value={doutor} onChange={(e) =>setDoutor(e.target.value)}>
+                    <option></option>
                         <option>Dra.Monica Araujo</option>
                         <option>Dra. Hana Lewis</option>
-                        <option>Dr.Yuri Ikar</option>
-                        <option> Dr.Fernando Winson</option>
+                        <option> Dr.Yuri Ikar</option>
+                        <option>Dr.Fernando Winson</option>
                      </select>
                         
-                        <div className='caixa-txt'>
+                        <div className='caixa'>
                             <p>Serviços*</p>
                             <input className='txt' type='text' value={servico} onChange={e => setServico(e.target.value)} />
                         </div>
@@ -118,9 +122,10 @@ export default function Index(){
                         </div>
                     </div>
                  
-                    <div className='f2-doutor'>
+                    <div className='caixa'>
                         <p >Qual a forma de pagamento?</p>
-                            <select value={forma_pag} onChange={(e) =>setForma_pag(e.target.value)}>
+                            <select  className='txt-1' value={forma_pag} onChange={(e) =>setForma_pag(e.target.value)}>
+                            <option></option>
                             <option>PIX</option>
                             <option>Dinheiro</option>
                             <option>Cartão de débito</option>
@@ -128,10 +133,11 @@ export default function Index(){
                         </select>
                         </div>
                     <div>
-                        <p className='caixa-txt'>Pagamento:</p>
+                        <p className='caixa'>Pagamento:</p>
                         <div className='radio' name='dia'>
-                        <select className='txt' value={data_pag} onChange={(e) =>setData_pag(e.target.value)}>
+                        <select className='txt-1' value={data_pag} onChange={(e) =>setData_pag(e.target.value)}>
                             
+                            <option></option>
                             <option>Será realizado no dia da consulta</option>
                             <option>Pagamento já foi realizado</option>
                             <option>Pagamento realizado em 50%</option>

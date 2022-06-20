@@ -1,6 +1,6 @@
 .page-agendar{
     background-color: #F5F5F5;
-    height: 1250px;
+    height: 1608px;
 
     .faixa-1 {
         background-color: #fff;
@@ -19,6 +19,7 @@
     
     .texto-1 p {
         margin: 40px 70px;
+        font-size: 27px;
     }
     
     .faixa-2 {
@@ -27,6 +28,7 @@
         font-family: 'font4';
         margin: 60px 150px;
         height: 800px;
+        font-size: 24px;
     }
     
     .faixa-2 h1 {
@@ -35,6 +37,7 @@
     
     .caixa {
         margin-top: 20px;
+        font-size: 22px;
     }
     
     input {
@@ -45,14 +48,23 @@
     }
     
     .txt {
-        width: 300px;
-        height: 25px;
-        border-radius: 5px;
+        width: 20em;
+        height: 2.8em;
+        border-radius: 0.5em;
+       
+    }
+
+    .txt-1{
+        width: 20em;
+        height: 2.8em;
+        border-radius: 0.5em;
+        font-size: 16px;
     }
     
     .caixa-txt {
         font-family: 'font6';
         margin-top: 30px;
+        
     }
     
     .radio {
@@ -72,11 +84,12 @@
     .botao {
         font-family: 'font3';
         text-align: center;
-        height: 32px;
-        width: 150px;
-        border-radius: 8px;
+        height: 39px;
+        width: 153px;
+        border-radius: 9px;
         background-color: #CCFFE5;
-        border: 1px solid #2F9C7C;
+        border: 2px solid #2F9C7C;
         cursor: pointer;
+        font-size: 24px;
     }
 }
