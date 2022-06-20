@@ -22,23 +22,32 @@
 
     .logo {
         color: #2F9C7C;
-        padding: 30px 50px;
     }
     
     .logomarca {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-        cursor: pointer;
+        
+        margin: 10px 30px 0px 30px;
     }
     
     .voltar {
-        font-family: 'font4';
-        padding-top: 50px;
-        margin-right: 100px;
-        color: #ffffff;
+        
+        margin-top: 10px;
         cursor: pointer;
         text-decoration: none;
+    }
+    .voltar a{
+        font-family: 'font10';  
+        background-color: #ffffff;
+        padding: 10px;
+        border-radius: 10px;
+    }
+    .voltar:hover{
+        cursor: pointer;
+        transform: scale(1.1,1.1);
+
     }
     .txt-icones {
         display: flex;
@@ -48,6 +57,7 @@
     
     .subtitulo {
         font-size: 16px;
+        margin-left: 10px;
     }
 
     .textos {

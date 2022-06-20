@@ -3,7 +3,7 @@ import './index.scss'
 
 import {inserirAgendamento, alterardadosdaconsulta } from '../../api/agendamentoApi.js'
 import { useState, useEffect } from 'react'
-
+import { useNavigate } from 'react-router-dom'
 import { useParams } from 'react-router-dom'
 // import { toast } from 'react-toastify'
 
@@ -23,11 +23,17 @@ export default function Index(){
     const [id, setId] = useState(0);
     const { idParam } = useParams();
 
+    const navigate = useNavigate();
+
     useEffect(() => { 
         if (idParam) {
             carregarConsulta()
         }
     }, [])
+
+    function voltarClick(){
+        navigate('/admin/home')
+    }
 
     async function carregarConsulta() {
         const resposta = await alterardadosdaconsulta(idParam);
@@ -66,7 +72,8 @@ export default function Index(){
                 <a href='/admin/home'>
                     <img className='logo' src='/images/odontotooths 1.svg' alt='' />
                 </a>
-                <p>Documentação</p>
+                <p className='button' onClick={voltarClick}> HOME </p>
+
                 </div>
             </nav>
 
