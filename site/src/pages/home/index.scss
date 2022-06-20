@@ -10,20 +10,16 @@
         display:flex;
        justify-content: space-between;
        align-items: center;
-      
-    
     }
     
     .logo {
         height:4em;
         width: 8em;
         margin: 1.5em;
-        
-
     }
 
     .login {
-        font-family: 'font3';
+        font-family: 'font3';        
         color: #ffffff;
         font-size: 20px;
         margin: 2em;
@@ -34,12 +30,9 @@
     .fundo {
         background-image: url('../../../public/images/WhatsApp\ Image\ 2022-04-17\ at\ 11.54\ 1.svg'); 
         background-size: 100%;
-        
-      
     }
     
     .texto1 {
-        font-family: 'font3';
         color: #ffffff;
         width: 18em;
         font-size: 40px;

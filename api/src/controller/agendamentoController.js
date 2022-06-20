@@ -32,19 +32,19 @@ server.post("/agendamento", async (req, resp) => {
     if (!novoAgendamento.doutor)
       throw new Error("Nome do doutor não válido!");
 
-    if (!novoAgendamento.servico) throw new Error("Servico é obrigatorio!");
+    if (!novoAgendamento.servico) throw new Error("Serviço é obrigatorio!");
 
     if (!novoAgendamento.dataAgendamento)
       throw new Error("Data do agendamento é obrigatorio!");
 
     if (!novoAgendamento.valorAgendamento)
-    throw new Error("Data do agendamento é obrigatorio!");
+    throw new Error("Valor do agendamento é obrigatorio!");
 
     const Agendarconsulta = await inserirAgendamento(novoAgendamento);
     resp.send(Agendarconsulta);
   } catch (err) {
     resp.status(400).send({
-      erro: err.message,
+      erro: err.message
     });
   }
 });
@@ -122,10 +122,10 @@ server.put("/agendamento/:id", async (req, resp) => {
     if (!novoAgendamento.nome)
       throw new Error("Nome Do Paciente é obrigatorio!");
     if (!novoAgendamento.servico)
-       throw new Error(" servico é obrigatorio!");
+       throw new Error("Serviço é obrigatorio!");
 
     if (!novoAgendamento.dataAgendamento)
-      throw new Error("  agendamento é obrigatorio!");
+      throw new Error("Data do agendamento é obrigatorio!");
 
     const resposta = await alterardadosdaconsulta(id, novoAgendamento);
     if (resposta != 1)
@@ -136,7 +136,7 @@ server.put("/agendamento/:id", async (req, resp) => {
 
   } catch (err) {
     resp.send({
-      erro: err.message,
+      erro: err.message
     });
   }
 });
