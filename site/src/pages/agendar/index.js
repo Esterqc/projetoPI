@@ -34,9 +34,14 @@ export default function Index(){
         console.log(resposta);
 
         setNome(resposta.paciente);
+        setIdade(resposta.idade);
+        setNasc(resposta.nascimento);
+        setCpf(resposta.cpf);
+        setRg(resposta.rg);
         setDoutor(resposta.doutor);
+        setServico(resposta.servico)
         setValorAgendamento(resposta.preco);
-        setDataAgendamento(resposta.dataAgendamento.substr(0,10));
+        setDataAgendamento(resposta.dataAgendamento);
 
         setId(resposta.Id);
     }
@@ -123,7 +128,7 @@ export default function Index(){
                         </select>
                         </div>
                     <div>
-                        <p className='caixa-txt'>Data do pagamento</p>
+                        <p className='caixa-txt'>Pagamento:</p>
                         <div className='radio' name='dia'>
                         <select className='txt' value={data_pag} onChange={(e) =>setData_pag(e.target.value)}>
                             
