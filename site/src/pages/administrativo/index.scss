@@ -49,7 +49,20 @@
     .link {
         font-size: 18px;
         font-family: 'font3';
-        padding-top: 30px;
         margin-right: 20px;
+        margin-top: 20px;
+        
+        height: fit-content;
+        padding: 10px;
+
+        border-radius: 10px;
+        background-color: white;
+
+        text-decoration: none;
+        color: black;
     }
+    .link:hover{
+        cursor: pointer;
+        transform: scale(1.1,1.02);
+    }   
 }

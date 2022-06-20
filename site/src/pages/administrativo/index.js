@@ -18,13 +18,14 @@ export default function Administrativo(){
     function sairClick(){
         storage.remove('usuario-logado')
     };
+
     
     return(
         <main className='page-adm'>
             <section className='faixa-work'>
                 <div className='work-logo'>
                     <img src='/images/odontotooths 1.svg' alt='' width='150'></img>
-                    <a className='link' href='/admin/home' onClick={sairClick}> Sair </a>
+                    <div className='link' href='/admin/home' onClick={sairClick}> Sair </div>
                 </div>
                 <div className='work-elements'>
                     <p>Qual o serviço?</p>

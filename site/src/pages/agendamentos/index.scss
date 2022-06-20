@@ -13,8 +13,8 @@
         padding: 10px;
     }
     .img-cabecalho{
-
-    }
+        margin-left: 20px;
+    }   
     .titulo-cabecalho{
 
     }
@@ -32,6 +32,12 @@
         display: flex;
         justify-content: center;
         align-items: center;
+
+        margin-right: 15px;
+    
+    }
+    .barraPesquisa-cabecalho img{
+        padding-left: 10px;
     }
     .barraPesquisa-cabecalho img:hover{
         cursor: pointer;
@@ -88,4 +94,20 @@
         padding-top: 10px;
         width: 20em;
     }
+    .button{
+        margin: 20px;
+        margin-top: 10px;
+        width: fit-content;
+
+        border-radius: 20px;
+
+        background-color: white;
+        border: solid 1px black;
+        padding: 10px;
+    }
+    .button:hover{
+        cursor: pointer;
+        transform: scale(1.01,1.01);
+        background-color: #F5F5F5;
+    }   
 }

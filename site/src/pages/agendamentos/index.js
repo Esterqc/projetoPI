@@ -20,6 +20,10 @@ export default function Index(){
     
     const navigate = useNavigate();
 
+    function voltarClick(){
+        navigate('/admin/home');
+    }
+
     async function alterarConsultaClick (id, nome) {
         navigate('/admin/alterar/' + id);
     }
@@ -111,6 +115,8 @@ export default function Index(){
                     </div>
                 </section>   
             )}
+
+            <div className='button' onClick={voltarClick}> HOME </div>
         </main>
     );
 }
