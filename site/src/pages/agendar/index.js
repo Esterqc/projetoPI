@@ -63,7 +63,7 @@ export default function Index(){
             
             <nav className='faixa-1'>
                 <div className='texto-1'>
-                <a href='../administrativo'>
+                <a href='/admin/home'>
                     <img className='logo' src='/images/odontotooths 1.svg' alt='' />
                 </a>
                 <p>Documentação</p>
