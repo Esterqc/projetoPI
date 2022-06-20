@@ -12,28 +12,39 @@
         display: flex;
         justify-content: center;
         background-color: #64C79D;
+        align-items: center;
         padding: 30px 0px;
         border-radius: 25px;
-        margin: 50px 450px;
+        margin: 50px 350px;
         width: 600px;
-        align-items: center;
-        margin-left: 40em;
-        height:30em ;
+        height: 30em;
     }
 
     .logo {
-        display: flex;
-        justify-content: space-between;
         color: #2F9C7C;
-        padding-left: 50px;
+        padding: 30px 50px;
     }
-
+    
+    .logomarca {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    
+    .voltar {
+        font-family: 'font4';
+        padding-top: 50px;
+        margin-right: 100px;
+        color: #ffffff;
+        cursor: pointer;
+        text-decoration: none;
+    }
     .txt-icones {
         display: flex;
         flex-direction: row;
         margin: 10px 0px;
     }
-
+    
     .subtitulo {
         font-size: 16px;
     }
@@ -67,18 +78,11 @@
         border: none;
     }
 
-    .voltar {
-        font-family: 'font4';
-        padding-top: 50px;
-        margin-right: 100px;
-        
-    }
 
     .tag-input{
         border-radius: 1em;
         width: 20em;
         height: 30px;
-       
     }
 
     .imagem {

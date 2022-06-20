@@ -1,5 +1,5 @@
 import { login } from '../../api/usuarioApi.js'; 
-import { useNavigate } from 'react-router-dom';
+import { Navigate, useNavigate } from 'react-router-dom';
 
 import storage from 'local-storage';
 import LoadingBar from 'react-top-loading-bar';
@@ -44,15 +44,23 @@ export default function Index() {
 
   }
 
+  function voltarClick() {
+    navigate('/')
+  }
+
   
     return (
       <main className='page-login'>
         <LoadingBar color='#287D01' ref={ref} />
   
         <section className='faixa-login'>
-          <div className="logo">
-            <img src="/images/odontotooths 1.svg" alt="logo" />
-            <a className="voltar" href="../home">Voltar</a>
+          <div className='logomarca'>
+           <div className="logo">
+              <img src="/images/odontotooths 1.svg" alt="logo" />
+            </div>
+            <div className="voltar">
+              <a onClick={voltarClick}>Voltar</a>
+            </div>
           </div>
           <div className="destacar-login">
             <div className="conteudo">
