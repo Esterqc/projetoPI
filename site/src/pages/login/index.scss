@@ -7,7 +7,7 @@
         background-color: #82DDAE;
         text-align: center;
     }
-    
+
     .destacar-login {
         display: flex;
         justify-content: center;
@@ -18,31 +18,38 @@
         width: 600px;
         align-items: center;
         margin-left: 40em;
-        height:35em ;
-    }   
-    
+        height:30em ;
+    }
+
     .logo {
         display: flex;
         justify-content: space-between;
         color: #2F9C7C;
         padding-left: 50px;
     }
-    
-    .txt-icones1 {
+
+    .txt-icones {
         display: flex;
         flex-direction: row;
         margin: 10px 0px;
-        font-size: 15px;
-       margin-right: 10em;
+    }
+
+    .subtitulo {
+        font-size: 16px;
+    }
+
+    .textos {
+        display: flex;
+        flex-direction: row;
     }
 
     .conteudo {
         text-align: center;
         padding-top: 30px;
     }
-    
+
     .botao {
-        font-family: 'font3';                                                                       
+        font-family: 'font3';
         font-size: 16px;
         background-color: #CCFFE5;
         color: #2F9C7C;
@@ -52,40 +59,33 @@
         border: none;
         cursor: pointer;
     }
-    
+
     .f-1 {
         border-radius: 10px;
         height: 25px;
         width: 300px;
         border: none;
     }
-    
+
     .voltar {
-        color: #2F9C7C !important;
-    padding: 0px !important;
-    margin: 30px !important;
-    text-decoration: underline !important;
-    font-family: 'font1'!important;
-    font-size: 30px !important;
-    
+        font-family: 'font4';
+        padding-top: 50px;
+        margin-right: 100px;
         
     }
 
-    .tag-input1{
+    .tag-input{
         border-radius: 1em;
-        width:25em ;
-        height: 34px;
-        margin-top: 40px;
-        
+        width: 20em;
+        height: 30px;
+       
     }
 
-    
-    
     .imagem {
         height: 100px;
         width: 150px;
     }
-    
+
     .logos {
         padding-right: 300px;
     }
@@ -93,8 +93,7 @@
         color: #ff0000;
     }
 
-    
-   
-
-
+    p {
+        font-family: 'font1';
+    }
 }
