@@ -66,20 +66,20 @@ export default function Index(){
                     <h1>Agendar consulta</h1>
                     <div>
                         <p>Nome do paciente*</p>
-                        <input className="nome" type="text" value={nome} onChange={e => setNome(e.target.value)}   />
+                        <input className="txt" type="text" value={nome} onChange={e => setNome(e.target.value)}   />
                     </div>
                     <div className='caixa'>
                         <p>Qual a idade*</p>
-                        <input className="idade" type="number" value={idade} onChange={e => setIdade(e.target.value)}  />
+                        <input className="txt" type="number" value={idade} onChange={e => setIdade(e.target.value)}  />
                     </div>
                     <div className='caixa'>
                         <p>Data de nascimento*</p>
-                        <input className="dt-conf" type="date" value={nasc} onChange={e => setNasc(e.target.value)}  />
+                        <input className="txt" type="date" value={nasc} onChange={e => setNasc(e.target.value)}  />
 
                     </div>
                     <div className='caixa'>
                         <p>CPF*</p>
-                        <input className="genero-CPF" type="text" value={cpf} onChange={e => setCpf(e.target.value)}   />
+                        <input className="txt" type="text" value={cpf} onChange={e => setCpf(e.target.value)}   />
                     </div>
                     <div className='caixa'>
                         <p>RG*</p>
@@ -88,7 +88,7 @@ export default function Index(){
                    
                     <div className='f2-doutor'>
                         <p>Doutor</p>
-                    <select value={doutor} onChange={(e) =>setDoutor(e.target.value)}>
+                    <select className='txt' value={doutor} onChange={(e) =>setDoutor(e.target.value)}>
                         <option>Dra.Monica Araujo</option>
                         <option>Dra. Hana Lewis</option>
                         <option>Dr.Yuri Ikar</option>
@@ -101,11 +101,11 @@ export default function Index(){
                         </div>
                         <div className='caixa'>
                             <p>Data agendamento*</p>
-                            <input className="dt-conf" type="date" value={dataAgendamento} onChange={e => setDataAgendamento(e.target.value)} />
+                            <input className="txt" type="date" value={dataAgendamento} onChange={e => setDataAgendamento(e.target.value)} />
                         </div>
                         <div className='caixa'>
                             <p>Valor*</p>
-                            <input className="caixa" type="text" value={valorAgendamento} onChange={e => setValorAgendamento(e.target.value)} /> 
+                            <input className="txt" type="text" value={valorAgendamento} onChange={e => setValorAgendamento(e.target.value)} /> 
                         </div>
                     </div>
                  
@@ -121,7 +121,7 @@ export default function Index(){
                     <div>
                         <p className='caixa-txt'>Data do pagamento</p>
                         <div className='radio' name='dia'>
-                        <select value={data_pag} onChange={(e) =>setData_pag(e.target.value)}>
+                        <select className='txt' value={data_pag} onChange={(e) =>setData_pag(e.target.value)}>
                             
                             <option>Será realizado no dia da consulta</option>
                             <option>Pagamento já foi realizado</option>

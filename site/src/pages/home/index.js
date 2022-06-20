@@ -13,21 +13,17 @@ export default function Home(){
 
     return(
         <main className='page-home'>
-            <nav className='faixa-1'>
-                <div className='logo'>
-                    <div>
-                        <img src='/images/odontotooths1.svg' alt=''></img>
-                    </div>
-                    <div>
-                    <a className='login' onClick={navegarClick}>Login</a>
-                    </div>
-                </div>
-            </nav>
+            <div className='faixa-1'>
+               
+               <img src='/images/odontotooths 1.svg' className='logo'></img>
+             <a className='login' onClick={navegarClick}>Login</a>
+                   
+            </div>
 
             <section className='fundo'>
                 <div>
                     <div className='texto1'>
-                        <h1>Mudando sorrisos,<br/>renovando vidas</h1>
+                        <h1>Mudando sorrisos, renovando vidas</h1>
                     </div>
                 </div>
             </section>
@@ -39,7 +35,7 @@ export default function Home(){
                 <div className='cards-page'>
                     <div className='cards-1'>
                         <div>
-                            <div className='card-one'>
+                            <div className='card'>
                                 <img src='/images/clareamento 2.svg' alt=''></img>
                                 <button>Clareamento dental</button>
                             </div>
@@ -47,7 +43,7 @@ export default function Home(){
                         <div>
                             <div className='card'>
                                 <img src='/images/siso 2.svg' alt=''></img>
-                                <button className='botao'>Dentes do siso</button>
+                                <button >Dentes do siso</button>
                             </div>
                         </div>
                         <div>
@@ -59,13 +55,13 @@ export default function Home(){
                         <div>
                             <div className='card'>
                                 <img src='/images/canal 2.svg' alt=''></img>
-                                <button className='botao-2'>Tratamento de canal do dente</button>
+                                <button >Tratamento de canal do dente</button>
                             </div>
                         </div>
                     </div>
                     <div className='cards-2'>
                         <div>
-                            <div className='card-one'>
+                            <div className='card'>
                                 <img src='/images/estetica 2.svg' alt=''></img>
                                 <button>Odontologia estética</button>
                             </div>
@@ -85,7 +81,7 @@ export default function Home(){
                         <div>
                             <div className='card'>
                                 <img src='/images/restauradora 2.svg' alt=''></img>
-                                <button className='botao-3'>Perda de dentes</button>
+                                <button>Perda de dentes</button>
                             </div>
                         </div>
                     </div>
@@ -93,9 +89,9 @@ export default function Home(){
             </section>
 
             <section className='faixa-3'>
-                <div>
+                <div className='sobrenos'>
                     <h1 className='f3-titulo'>Sobre Nós</h1>
-                    <h2 className='f3-texto'>A ODONTO TOOTH's é uma clínica odontológica que atua<br/>desde 2010 e conta com ótimas instalações no bairro de <br/>Alphaville, agradável recepção, consultórios modernos e <br/>confortáveis.<br/><br/>Em nossa clínica o ambiente é acolhedor para que se <br/> sintam em casa.<br/>Utilizamos materiais e equipamentos da mais alta qualidade,<br/>associados a conceitos técnicos atuais e estritos<br/>procedimentos de biosssegurança.<br/><br/>Nossa equipe é treinada para que sua experiência seja a mais<br/>satisfatória possível e assim consigamos alcançar a excelência em<br/>tudo que nos propomos a fazer pela sua saúde e seu bem estar.</h2>
+                    <h2 className='f3-texto'>A ODONTO TOOTH's é uma clínica odontológica que atua desde 2010 e conta com ótimas instalações no bairro de Alphaville, agradável recepção, consultórios modernos e confortáveis. Em nossa clínica o ambiente é acolhedor para que se sintam em casa. Utilizamos materiais e equipamentos da mais alta qualidade,associados a conceitos técnicos atuais e estritos procedimentos de biosssegurança. Nossa equipe é treinada para que sua experiência seja a mais satisfatória possível e assim consigamos alcançar a excelência em tudo que nos propomos a fazer pela sua saúde e seu bem estar.</h2>
                 </div>
             </section>
 
@@ -125,11 +121,10 @@ export default function Home(){
                 <div className='f5-fundo'>
                     <div className='f5-texto'>
                         <p>Ficamos localizados
-                            <br/>
-                            <br/>Endereço
+                        
                         </p>
                         <br/>
-                        <h3 className='f5-t'>Rua XXXXXX XXX, Alphaville<br/>São Paulo - sp<br/>CEP: XXXXX-XXX</h3>
+                        <h3 className='f5-t'>Rua Fernando Diaz, 27 - Alphaville, São Paulo - SP CEP: 55909-287</h3>
                     </div>
                     <div className='f5-images'>
                         <img className='f5-logo' src='/images/odontotooths 1.svg' alt=''></img>
@@ -140,12 +135,13 @@ export default function Home(){
                         <img className='f5-icon' src='/images/whatsapp (1) 2.svg' alt='whatsapp' width='25'/>
                         <p>Agende uma avaliação</p>
                     </div>
-                    <div className='f5-texto-2'>
+                    <div className='f5-texto-3'>
                         <p>Atendimento</p>
-                        <br/>
-                        <br/>Seg - Sex: 8:00 - 19:00<br/>Sáb. 8:00 - 14:00
-                        <br/>
-                        <p>Venha conhecer nossos serviços</p>
+                        <p className='f5-texto-2'> 
+                        Seg a Sex 8:00 - 19:00
+                        Sáb 8:00 - 14:00
+                        </p>
+                     <p>Venha conhecer nossos serviços</p>
                     </div>
                 </div>
             </section>

@@ -55,22 +55,19 @@ export default function Index() {
         </div>
         <div className="destacar-login">
           <div className="conteudo">
-            <div className="txt-icones">
-              <p>Seja bem-vindo</p>
+           
+
+
+            <div className="txt-icones1">
+            <img src="/images/o-email 1.svg" alt="email" width='30'/>
+            <h2 class="subtitulo"> E-mail*</h2>
+           <input class="tag-input1" type="text" placeholder='ex: exemplo@gmail.com' value={email} onChange={e => setEmail(e.target.value)} />
             </div>
 
-
-            <div>
-              <h2 class="subtitulo"> E-mail*</h2>
-              <input class="tag-input" type="text" placeholder='ex: exemplo@gmail.com' value={email} onChange={e => setEmail(e.target.value)} />
-              <img src="/images/o-email 1.svg" alt="email" width='30' />
-            </div>
-
-            <div>
+            <div className="txt-icones2">
+            <img src="/images/cadeado 1.svg" alt="cadeado" width='30' />
               <h2 class="subtitulo">Senha*</h2>
-
-              <input class="tag-input" type="password" placeholder='***' value={senha} onChange={e => setSenha(e.target.value)} />
-              <img src="/images/cadeado 1.svg" alt="cadeado" width='30' />
+              <input class="tag-input2" type="password" placeholder='***' value={senha} onChange={e => setSenha(e.target.value)} />
             </div>
 
             
