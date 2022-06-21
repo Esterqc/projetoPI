@@ -117,7 +117,7 @@ export default function Home(){
                 </div>
             </section>
 
-            <section className='faixa-5'>
+            <footer className='faixa-5'>
                 <div className='f5-fundo'>
                     <div className='f5-texto'>
                         <p>Ficamos localizados
@@ -144,7 +144,7 @@ export default function Home(){
                      <p>Venha conhecer nossos serviços</p>
                     </div>
                 </div>
-            </section>
+            </footer>
         </main>
     );
 }      
