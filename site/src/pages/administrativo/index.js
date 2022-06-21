@@ -33,7 +33,6 @@ export default function Administrativo(){
                     <div className='work-button'>
                         <a href='/admin/agendar'>
                             <button>
-                     
                                 Agendar consulta
                             </button>
                         </a>
