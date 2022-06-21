@@ -1,4 +1,5 @@
 import './index.scss'
+import '../../common/common.css'
 
 import logo from '../../assets/images/logo.png';
 import lupa from '../../assets/images/lupa.png';

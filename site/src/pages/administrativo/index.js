@@ -1,6 +1,6 @@
-
-
 import './index.scss';
+import '../../common/common.css'
+
 import storage from 'local-storage';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';

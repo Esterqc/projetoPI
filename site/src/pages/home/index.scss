@@ -33,12 +33,13 @@
     }
     
     .texto1 {
+        justify-content: flex-end;
+        align-items: center;
+        font-family: 'font2';
         color: #ffffff;
         width: 18em;
         font-size: 40px;
-        justify-content: flex-end;
-        align-items: center;
-       padding: 4em 1em;
+        padding: 4em 1em;
     }
     
     .titulo {
@@ -72,20 +73,16 @@
         margin-top: 4em;
     }
     
-  
-    
     .card {
         display: flex;
         flex-direction: column;
         align-items: center;
         background-color: #2F9C7C;
-        width: 8em;
-        height: 12em;
+        width: 15em;
+        height: 15em;
         border-radius: 25px;
         padding: 3em;
-       justify-content: space-evenly;
-       
-       
+        justify-content: space-evenly;
     
 
     img{
@@ -138,7 +135,7 @@
 
             .f3-titulo {
                 text-align: center;
-                font-family: 'font9';
+                font-family: 'font1';
                 color: #2F9C7C;
                 font-size: 28px;
                 margin-right: 6em;
@@ -148,12 +145,9 @@
             }
             
             .f3-texto {
-                font-family: 'font3';
+                font-family: 'font5';
                 font-size: 18px;
                 width: 28em;
-                
-                
-        
             }
         }
     

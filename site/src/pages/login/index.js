@@ -5,6 +5,7 @@ import storage from 'local-storage';
 import LoadingBar from 'react-top-loading-bar';
 import { useState, useRef, useEffect } from 'react';
 import './index.scss';
+import '../../common/common.css'
 
 
 export default function Index() {

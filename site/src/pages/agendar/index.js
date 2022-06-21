@@ -1,5 +1,5 @@
-
 import './index.scss'
+import '../../common/common.css'
 
 import {inserirAgendamento, alterardadosdaconsulta } from '../../api/agendamentoApi.js'
 import { useState, useEffect } from 'react'
