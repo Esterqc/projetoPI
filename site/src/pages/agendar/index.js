@@ -13,12 +13,12 @@ export default function Index(){
     const [nasc, setNasc] = useState('');
     const [cpf, setCpf] = useState('');
     const [rg, setRg] = useState('');
-    const [doutor, setDoutor] = useState('Dra.Monica Araujo');
+    const [doutor, setDoutor] = useState('');
     const [servico, setServico] = useState('');
     const [dataAgendamento, setDataAgendamento] = useState('');
     const [valorAgendamento, setValorAgendamento] = useState('');
-    const [forma_pag, setForma_pag] = useState('PIX');
-    const [data_pag, setData_pag] = useState('Será realizado no dia da consulta');
+    const [forma_pag, setForma_pag] = useState('');
+    const [data_pag, setData_pag] = useState('');
 
     const [id, setId] = useState(0);
     const { idParam } = useParams();
